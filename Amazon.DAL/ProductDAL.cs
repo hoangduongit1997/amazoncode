@@ -15,7 +15,10 @@ namespace Amazon.DAL
         {
             db = new ShopDbContext();
         }
-
+        /*
+         * This is Khang's comment
+         * Khang is here
+         */
         public Product ViewDetail(string id)
         {
             return db.Products.Find(id);
