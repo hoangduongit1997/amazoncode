@@ -92,3 +92,15 @@ C:\Users\hoang\Downloads\Amazon_TongHop\Amazon_TongHop\Amazon_TongHop\Amazon\Ama
 C:\Users\hoang\Downloads\Amazon_TongHop\Amazon_TongHop\Amazon_TongHop\Amazon\Amazon\Amazon.EntityFramework\obj\Debug\Amazon.EntityFramework.csproj.CopyComplete
 C:\Users\hoang\Downloads\Amazon_TongHop\Amazon_TongHop\Amazon_TongHop\Amazon\Amazon\Amazon.EntityFramework\obj\Debug\Amazon.EntityFramework.dll
 C:\Users\hoang\Downloads\Amazon_TongHop\Amazon_TongHop\Amazon_TongHop\Amazon\Amazon\Amazon.EntityFramework\obj\Debug\Amazon.EntityFramework.pdb
+D:\Git\Amazon\amazoncode\Amazon.EntityFramework\bin\Debug\Amazon.EntityFramework.dll.config
+D:\Git\Amazon\amazoncode\Amazon.EntityFramework\bin\Debug\Amazon.EntityFramework.dll
+D:\Git\Amazon\amazoncode\Amazon.EntityFramework\bin\Debug\Amazon.EntityFramework.pdb
+D:\Git\Amazon\amazoncode\Amazon.EntityFramework\bin\Debug\EntityFramework.dll
+D:\Git\Amazon\amazoncode\Amazon.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+D:\Git\Amazon\amazoncode\Amazon.EntityFramework\bin\Debug\EntityFramework.xml
+D:\Git\Amazon\amazoncode\Amazon.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+D:\Git\Amazon\amazoncode\Amazon.EntityFramework\obj\Debug\Amazon.EntityFramework.csprojAssemblyReference.cache
+D:\Git\Amazon\amazoncode\Amazon.EntityFramework\obj\Debug\Amazon.EntityFramework.csproj.CoreCompileInputs.cache
+D:\Git\Amazon\amazoncode\Amazon.EntityFramework\obj\Debug\Amazon.EntityFramework.csproj.CopyComplete
+D:\Git\Amazon\amazoncode\Amazon.EntityFramework\obj\Debug\Amazon.EntityFramework.dll
+D:\Git\Amazon\amazoncode\Amazon.EntityFramework\obj\Debug\Amazon.EntityFramework.pdb
