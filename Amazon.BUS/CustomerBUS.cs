@@ -9,6 +9,9 @@ namespace Amazon.BUS
 {
    public class CustomerBUS
     {
+        /// <summary>
+        /// Customerbus BUS
+        /// </summary>
         CustomerDAL dal;
         public CustomerBUS()
         {
