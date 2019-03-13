@@ -1,0 +1,189 @@
+﻿
+<link href="~/Content/css/Homepage.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+    var listNewProduct = (List<Amazon.EntityFramework.Product>)ViewBag.NewProduct;
+    var topDeal = (List<Amazon.EntityFramework.Product>)ViewBag.TopDeal;
+    var SessionUser = (Amazon.EntityFramework.Customer)ViewBag.SessionUser;
+}
+
+@{Html.RenderAction("Slider", "Home"); }
+<div id="Contain">
+    <div class="container-fluid text-center bg-grey">
+        <div class="row text-center">
+            <div class="col-sm-3">
+                <div class="thumbnail">
+                    <p><strong>Recently Viewed</strong></p>
+                    <img src="~/Upload/image/logo/disk.png" alt="Recently Viewed">
+                    <p>Today</p>
+                    <a href="#">See your browsing history</a>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="thumbnail">
+                    <p><strong>Deals & Promotions</strong></p>
+                    <img src="~/Upload/image/logo/promotion.png" alt="Deals & Promotions">
+                    <p>Deals in every department</p>
+                    <a href="#">Shop now</a>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="thumbnail">
+                    <p><strong>Women's Dresses</strong></p>
+                    <img src="~/Upload/image/logo/womandress.PNG" alt="Women's Dresses">
+                    <p>Find the perfect dress for any occasion</p>
+                    <a href="#">Shop now</a>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="thumbnail">
+                    <p><strong>Top Baby Products</strong></p>
+                    <img src="~/Upload/image/logo/baby.png" alt="Top Baby Products">
+                    <p>Shop top products in Baby</p>
+                    <a href="#">Shop now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="Footer">
+
+    </div>
+</div>
+<div class="container testimonial-group">
+    <div>
+        <p id="discover">Discover Amazon  <a href="#">Learn more</a></p>
+    </div>
+    <div class="row text-center">
+        <div class="col-xs-3">
+            <img class="hinh" src="~/Upload/image/logo/Shoveler_EN_SecurePayment_1X._CB457446307_.jpg" alt="Image" />
+        </div>
+        <div class="col-xs-3">
+            <img class="hinh" src="~/Upload/image/logo/Shoveler_EN_Deals_1X._CB457874078_.jpg" alt="Image" />
+        </div>
+
+        <div class="col-xs-3"><img class="hinh" src="~/Upload/image/logo/Shoveler_EN_EstimatedImportFees_1X._CB457883120_.jpg" alt="Image" /></div>
+
+        <div class="col-xs-3"><img class="hinh" src="~/Upload/image/logo/Shoveler_EN_Language_1X._CB457446307_.jpg" alt="Image" /></div>
+
+        <div class="col-xs-3"><img class="hinh" src="~/Upload/image/logo/Shoveler_EN_TrackPackage_1X._CB457446306_.jpg" alt="Image" /></div>
+
+        <div class="col-xs-3"><img class="hinh" src="~/Upload/image/logo/Shoveler_EN_Shipping_1X._CB457446307_.jpg" alt="Image" /></div>
+
+        <div class="col-xs-3"><img class="hinh" src="~/Upload/image/logo/Shoveler_EN_CustomerService_1X._CB457874078_.jpg" alt="Image" /></div>
+
+    </div>
+</div>
+@*<div class="container testimonial-group">
+        <div>
+            <p id="discover">Top deals  <a href="#">See all deals</a></p>
+        </div>
+        <div class="row text-center">
+            <div class="col-xs-3">
+                <img class="hinh" src="~/Image/31K1W4NA8DL.__AC_SY200_.jpg" alt="Image" />
+                <p class="price">$12.8</p>
+            </div>
+            <div class="col-xs-3">
+                <img class="hinh" src="~/Image/4156XclY4QL.__AC_SY200_.jpg" alt="Image" />
+                <p class="price">$12.8</p>
+            </div>
+
+            <div class="col-xs-3">
+                <img class="hinh" src="~/Image/41cVh191OaL.__AC_SY200_.jpg" alt="Image" />
+                <p class="price">$12.8</p>
+            </div>
+
+            <div class="col-xs-3">
+                <img class="hinh" src="~/Image/41dD8ys8N6L.__AC_SY200_.jpg" alt="Image" />
+                <p class="price">$12.8</p>
+            </div>
+
+            <div class="col-xs-3">
+                <img class="hinh" src="~/Image/41jICXbktML.__AC_SY200_.jpg" alt="Image" />
+                <p class="price">$12.8</p>
+            </div>
+
+            <div class="col-xs-3">
+                <img class="hinh" src="~/Image/41JjewNkN0L.__AC_SY200_.jpg" alt="Image" />
+                <p class="price">$12.8</p>
+            </div>
+
+            <div class="col-xs-3"><img class="hinh" src="~/Image/518LAjvtL-L.__AC_SY200_.jpg" alt="Image" /> <p class="price">$12.8</p></div>
+            <div class="col-xs-3"><img class="hinh" src="~/Image/51nOR2bEWNL.__AC_SY200_.jpg" alt="Image" /> <p class="price">$12.8</p></div>
+
+        </div>
+    </div>
+    <div class="container testimonial-group">
+        <div>
+            <p id="discover">Trending in video games  <a href="#">See more</a></p>
+        </div>
+        <div class="row text-center">
+            <div class="col-xs-3 payment">
+                <img class="hinh" src="~/Image/31K1W4NA8DL.__AC_SY200_.jpg" alt="Image" />
+
+            </div>
+            <div class="col-xs-3">
+                <img class="hinh" src="~/Image/4156XclY4QL.__AC_SY200_.jpg" alt="Image" />
+
+            </div>
+
+            <div class="col-xs-3"><img class="hinh" src="~/Image/41cVh191OaL.__AC_SY200_.jpg" alt="Image" /></div>
+
+            <div class="col-xs-3"><img class="hinh" src="~/Image/41dD8ys8N6L.__AC_SY200_.jpg" alt="Image" /></div>
+
+            <div class="col-xs-3"><img class="hinh" src="~/Image/41jICXbktML.__AC_SY200_.jpg" alt="Image" /></div>
+
+            <div class="col-xs-3"><img class="hinh" src="~/Image/41JjewNkN0L.__AC_SY200_.jpg" alt="Image" /></div>
+
+            <div class="col-xs-3"><img class="hinh" src="~/Image/518LAjvtL-L.__AC_SY200_.jpg" alt="Image" /></div>
+            <div class="col-xs-3"><img class="hinh" src="~/Image/51nOR2bEWNL.__AC_SY200_.jpg" alt="Image" /></div>
+
+        </div>
+    </div>*@
+<div class="container testimonial-group">
+    <div>
+        @if (SessionUser != null)
+        {
+            <p>@SessionUser.customer_name</p>
+        }
+
+
+        <p id="discover">New Product <a href="#">See more</a></p>
+    </div>
+    <div class="row text-center">
+        @foreach (var item in listNewProduct)
+        {
+            <div class="col-xs-3">
+
+                <a href="@Url.Action("Index","Product",new {typeID=item.product_type_code })"> <img class="hinh" src="@item.product_imge" alt="Image" /></a>
+                <p class="price">@item.product_price</p>
+                <p class="price">@item.product_name</p>
+            </div>
+        }
+
+    </div>
+</div>
+
+<div class="container testimonial-group">
+    <div>
+        <p id="discover">Top Deals <a href="#">See more</a></p>
+    </div>
+    <div class="row text-center">
+        @foreach (var item in listNewProduct)
+        {
+            <div class="col-xs-3">
+
+                <a href="@Url.Action("Index","Product",new {typeID=item.product_type_code })"> <img class="hinh" src="@item.product_imge" alt="Image" /></a>
+                <p class="price">@item.product_price</p>
+                <p class="price">@item.product_name</p>
+            </div>
+        }
+
+    </div>
+
+</div>
+
+
+
+

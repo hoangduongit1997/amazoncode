@@ -1,0 +1,288 @@
+﻿@model Amazon.EntityFramework.Product
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/Layout.cshtml";
+    var relatedProducts = (List<Amazon.EntityFramework.Product>
+    )ViewBag.RelatedProducts;
+    int i = 12/relatedProducts.Count();
+    }
+
+    <!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+
+        <link href="~/Content/css/ProductDetails.css" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="card">
+                <div class="container-fliud">
+                    <div class="wrapper row">
+                        <div class="col-md-2">
+                            <ul class="preview-thumbnail nav nav-tabs">
+
+                                <div class="menu-icon">
+                                    <span></span>
+                                    <li class="active">
+                                        <a data-target="#pic-1" data-toggle="tab"><img src="~/Image/vaynu1.png" alt="WomanDress"></a><br />
+                                    </li>
+                                    <li>
+                                        <a data-target="#pic-2" data-toggle="tab"><img src="~/Image/vaynu2.png" alt="WomanDress"></a><br />
+                                    </li>
+                                    <li>
+                                        <a data-target="#pic-3" data-toggle="tab"><img src="~/Image/vaynu3.png" alt="WomanDress"></a><br />
+                                    </li>
+                                    <li>
+                                        <a data-target="#pic-4" data-toggle="tab"><img src="~/Image/vaynu4.png" alt="WomanDress"></a><br />
+                                    </li>
+                                    <li>
+                                        <a data-target="#pic-5" data-toggle="tab"><img src="~/Image/vaynu5.png" alt="WomanDress"></a><br />
+                                    </li>
+                                    <li>
+                                        <a data-target="#pic-6" data-toggle="tab"><img src="~/Image/vaynu6.png" alt="WomanDress"></a>
+                                    </li>
+                                </div>
+                            </ul>
+                        </div>
+                        <div class="preview col-md-3">
+                            <div class="preview-pic tab-content">
+                                <div class="tab-pane active" id="pic-1">
+                                    <img src="~/Image/vaynu1.png" alt="WomanDress">
+                                </div>
+                                <div class="tab-pane" id="pic-2">
+                                    <img src="~/Image/vaynu2.png" alt="WomanDress">
+                                </div>
+                                <div class="tab-pane" id="pic-3">
+                                    <img src="~/Image/vaynu3.png" alt="WomanDress">
+                                </div>
+                                <div class="tab-pane" id="pic-4">
+                                    <img src="~/Image/vaynu4.png" alt="WomanDress">
+                                </div>
+                                <div class="tab-pane" id="pic-5">
+                                    <img src="~/Image/vaynu5.png" alt="WomanDress">
+                                </div>
+                                <div class="tab-pane" id="pic-6">
+                                    <img src="~/Image/vaynu6.png" alt="WomanDress">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="details col-md-4">
+                            <a href="#">For Love & Lemons</a>
+                            <h3 class="product-title">@Model.product_name</h3>
+                            <div class="rating">
+                                <div class="stars">
+                                    <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star"></span>
+                                </div> <span class="review-no">  4 customer reviews  </span>
+                            </div>
+                            <h4 class="price">
+                                Price: @(Model.product_price.HasValue? Model.product_price.Value.ToString("N0"):"Liên hệ")
+                            </h4>
+
+                            <p class="vote">
+                                <strong>Fit:</strong> <a href="#"> As expected (83%) </a>
+                            </p>
+                            <h5 class="sizes">
+                                Size:<br />
+                                <div class="btn-group">
+                                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                                        Select <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>@Model.product_size</li>
+                                        <li>Medium</li>
+                                    </ul>
+                                </div> <a href="#">Size Chart</a>
+
+                            </h5>
+                            <h5 class="colors">
+                                <b>Color:</b> @Model.product_color<br />
+
+                            </h5>
+                            <ul>
+                                <li>Imported</li>
+                                <li>Embroidered stretch mesh</li>
+                                <li>40% cotton/40% polyamide/20% polyester</li>
+                                <li>100% polyester</li>
+                                <li>Dry clean</li>
+                                <li>Width 32in / 81cm, from shoulder</li>
+                            </ul>
+                            <p><a href="#"><span class="glyphicon glyphicon-comment"></span></a><a href="#"> Report incorrect product information.</a></p>
+
+                            <p><b>More Fashion Picks For You</b></p>
+                            <div class="container-fluid text-center bg-grey">
+                                @foreach (var item in relatedProducts)
+                                {
+                                var url = "/chi-tiet" + item.product_name + "-" + item.product_id;
+                                <div class="row text-center">
+                                    <div class="col-md-@i">
+                                        <div class="thumbnail">
+                                            <a href="@url"><img src="hinh" alt="Recently Viewed"></a>
+                                            <p>@item.product_name</p>
+                                            <p>@item.product_price</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                }
+                            </div>
+                            <div class="col-md-3">
+                                <a href="#">Share </a><span class="glyphicon glyphicon-envelope"></span><a href="#" class="fa fa-facebook"></a><a href="#" class="fa fa-twitter"></a><a href="#" class="fa fa-pinterest"></a>
+                                <div class="well">
+                                    <p>To buy, select <b>Size</b></p>
+                                    <button class="btn1"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+                                    <hr />
+                                    <button class="btn2">Add to List</button>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <h4><b>Have a question?</b></h4>
+                            <p>Find answers in product info, Q&As, reviews</p>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                                <input id="search" type="text" class="form-control" name="search">
+                            </div>
+                            <hr />
+                            <h4><b>Product description</b></h4>
+                            <p>@Html.Raw(Model.product_description)</p>
+                            <p><b>Shipping Weight:</b>12 ounces (<a href="#">View shipping rates and policies</a>)</p>
+                            <p><b>ASIN:</b>B017IW3R4I</p>
+                            <p><b>Date first listed on Amazon: </b> November 3, 2015</p>
+                            <p><b>Amazon Best Sellers Rank:</b>#276,642 in Clothing, Shoes & Jewelry (<a href="#">See Top 100 in Clothing, Shoes & Jewelry</a>)</p>
+                            <p>#8 in <a href="#">Women's Contemporary & Designer Casual Dresses</a></p>
+                            <p>#2133 in <a href="#">Women's Casual Dresses</a></p>
+                            <p>
+                                <b>Average Customer Review: </b>
+                                <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star"></span>
+                                <span class="review-no"> <a href="#">  4 customer reviews</a>   </span>
+                            </p>
+                            <p>If you are a seller for this product, would you like to <a href="#">suggest updates through seller support?</a></p>
+
+                            <p><strong>Related Video Shorts (0)</strong><a href="#">Upload your video</a></p>
+                            <img alt="video" />
+                            <p><b>Be the first video</b></p>
+                            <p>Your name here</p>
+                            <hr />
+                            <h4><b>Customer questions & answers</b></h4>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                                <input id="search" type="text" class="form-control" name="search" placeholder="Have a question? Search for answers">
+                            </div>
+                            <ul>
+                                Typical questions asked about products:
+                                <li>Is the item durable?</li>
+                                <li>Is this item easy to use?</li>
+                                <li>What are the dimensions of this item?</li>
+                            </ul>
+                            <hr />
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h4><b>4 customer reviews</b></h4>
+                                <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star"></span>
+                                <span class="review-no"> <a href="#">  3.9 out of 5 stars</a>   </span><br />
+                                <div class="row">
+                                    <div class="col-md-3"><a href="#">5 star</a></div>
+                                    <div class="col-md-7">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="50"
+                                                 aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <p>50%</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3"><a href="#">4 star</a></div>
+                                    <div class="col-md-7">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="25"
+                                                 aria-valuemin="0" aria-valuemax="100" style="width:25%">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p>25%</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3"><a href="#">3 star</a></div>
+                                    <div class="col-md-7">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="0"
+                                                 aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p>0%</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3"><a href="#">2 star</a></div>
+                                    <div class="col-md-7">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="25"
+                                                 aria-valuemin="0" aria-valuemax="100" style="width:25%">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p>25%</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3"><a href="#">1 star</a></div>
+                                    <div class="col-md-7">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="0"
+                                                 aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p>0%</p>
+                                    </div>
+                                </div>
+                                <hr />
+                                <h4><b>Review this product</b></h4>
+                                <p>Share your thoughts with other customers</p>
+                                <button class="btn2">Write a customer review</button>
+                            </div>
+                            <div class="col-md-7">
+                                <p><b>Showing 1-4 of 4 reviews</b></p>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+                                        Top Reviews
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Most recent</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </body>
+</html>
+
