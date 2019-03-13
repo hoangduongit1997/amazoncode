@@ -1,0 +1,94 @@
+﻿
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Amazon.com: Online Shopping for Anything you want</title>
+    <link href="~/Content/Css_UserLayout/UserLayout.css" rel="stylesheet" />
+    <link href="~/Content/fontawesome-free-5.7.2-web/css/all.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Content/JS/TopButton.js"></script>
+
+
+</head>
+<body>
+    <div>
+        <nav style="background-image:url(../../Upload/image/logo/4.png)" class="navbar navbar-inverse ">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-right" href="@Url.Action("Index", "Home")"><img id="logo_left" style=" width:150px; height:50px" src="~/Upload/image/logo/logo.png" alt="Amazon" /></a>
+                        </div>
+                        <div>
+                            <form class="navbar-form navbar-left" action="/action_page.php">
+
+                                <div class="input-group">
+
+                                    <div class="btn-group">
+
+                                        <button id="input" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" title="Search in">
+                                            All<span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">All Department</a></li>
+                                            <li><a href="#">Arts & Crafts</a></li>
+                                            <li><a href="#">Automotive</a></li>
+                                            <li><a href="#">Baby</a></li>
+                                            <li><a href="#">Beauty & Personal Care</a></li>
+                                            <li><a href="#">Books</a></li>
+                                            <li><a href="#">Computer</a></li>
+                                            <li><a href="#">Digital Music</a></li>
+                                        </ul>
+                                        <input size="40" type="text" class="form-control" name="search">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-default" type="submit">
+                                                <i class="glyphicon glyphicon-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="navbar-header">
+                            <a class="navbar-right" href="#"><img style=" width:350px; height:50px" id="logo_right" src="~/Upload/image/logo/logo2.png" alt="Shop today's deals" /></a>
+                        </div>
+                    </div>
+                    @* Partial Main menu*@
+                    @{Html.RenderAction("MainMenu", "Home");}
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="main">
+
+        @RenderBody()
+
+    </div>
+    @*Partial Footer*@
+    <div class="contain chan">
+        @{ Html.RenderAction("Footer", "Home");}
+    </div>
+    @RenderSection("jsFooter", required: false)
+
+
+</body>
+</html>
+

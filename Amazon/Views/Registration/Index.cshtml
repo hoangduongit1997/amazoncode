@@ -1,0 +1,82 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/css/Login.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+    <div class="container">
+        <img src="~/Image/Amazon-logo.png" class="rounded mx-auto d-block" alt="...">
+        <div class="row">
+
+            <div class="col-md-3 mx-auto">
+
+                <div id="first">
+                    <div class="myform form ">
+
+                        <div class="logo mb-3">
+                            <div class="col-md-12 text-center">
+                                <h1>Create Account</h1>
+                            </div>
+                        </div>
+                        <form action="" method="post" name="login">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Your Name</label>
+                                <input type="text" name="name" class="form-control" id="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1" style="width:100%;">Email</label>
+                                <input type="password" name="password" id="password" class="form-control" aria-describedby="emailHelp">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1" style="width:100%;" >PassWord</label>
+                                <input type="password" name="password" id="password" class="form-control" placeholder="Atlest 6 characters" aria-describedby="emailHelp">
+                                <label style="font-weight:normal; font-size:10px;">Passwords must be at least 6 characters.</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1" style="width:100%;" placeholder="Atlest 6 characters">Re-enter passWord</label>
+                                <input type="password" name="re_password" id="re_password" class="form-control" aria-describedby="emailHelp">
+                            </div>
+                          
+                            <div class="form-group">
+                                <button type="submit" class="btn" style="font-size:14px;">Create your amazon account</button>
+                            </div>
+
+                            <div class="col-md-12 ">
+                                <div class="login-or">
+                                    <hr class="hr-or">
+                                    <span class="span-or"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label style="font-weight:normal;">Already have an account?  <a href="#">Sign in</a></label>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

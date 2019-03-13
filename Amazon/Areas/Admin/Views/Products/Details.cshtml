@@ -1,0 +1,99 @@
+﻿@model Amazon.EntityFramework.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAD.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ref_Product_Types.product_type_description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ref_Product_Types.product_type_description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_size)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_size)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_color)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_imge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_imge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.more_image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.more_image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.createddate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.createddate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.promotionprice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.promotionprice)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.product_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

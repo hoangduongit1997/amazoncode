@@ -1,0 +1,27 @@
+﻿@model Amazon.EntityFramework.Ref_Product_Types
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ref_Product_Types</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.product_type_description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_type_description)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.product_type_code }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
