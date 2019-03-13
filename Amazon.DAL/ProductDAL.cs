@@ -17,7 +17,7 @@ namespace Amazon.DAL
         }
         /*
          * This is Khang's comment
-         * Khang is here
+         * Khang is here, so what's up ??
          */
         public Product ViewDetail(string id)
         {
