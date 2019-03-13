@@ -11,7 +11,7 @@ namespace Amazon.BUS
     {
         /// <summary>
         /// Customerbus BUS
-	   /// New
+	   /// New 12333333
         /// </summary>
         CustomerDAL dal;
         public CustomerBUS()
