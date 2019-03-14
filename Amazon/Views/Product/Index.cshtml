@@ -1,58 +1,50 @@
-﻿@model List<Amazon.EntityFramework.Product>
+﻿@model List<Amazon.DTO.ProductDTO>
 @{
-    ViewBag.Title = "Amazon.com Products";
+    ViewBag.Title = "Quản lý sản phẩm";
     Layout = "~/Views/Shared/Layout.cshtml";
-    var ListProductType = (List<Amazon.EntityFramework.Ref_Product_Types>)ViewBag.ProductType;
+   // var ListProductType = (List<Amazon.EntityFramework.Ref_Product_Types>)ViewBag.ProductType;
 }
-<style>
-    .text {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-</style>
-<div class="row">
-    <div style="height:100%; " class="contain">
-        <div class="col-md-2">
-            <div style="float:left;height:100vh;width:100%; background-color:darkgray" class="col left navbar-inverse">
-                <b class="label" style="color:black">Featured Category</b>
-                <ul style="list-style-type:none">
-                    @foreach (var item in ListProductType)
-                    {
-                        <li><a href="@Url.Action("Index","Product",new {typeID=item.product_type_code})">@item.product_type_description</a></li>
-                    }
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-10">
-            @*<div class="row">*@
-            @foreach (var item in Model)
+
+<div style="height:100%" class="contain">
+
+
+    @*<div style="float:left;height:100vh; background-color:darkgray" class="col left">
+        <h2>Featured Category</h2>
+        <ul>
+            @foreach (var item in ListProductType)
             {
-                <div class="col-md-3 col-sm-6">
-                    <div class="card text-center jumbotron">
-                        <div class="card-img-top">
+                <li><a href="@Url.Action("Index","Product",new {typeID=item.product_type_code})">@item.product_type_description</a></li>
 
-                            <a href="@Url.Action("Show","Product",new {id=item.product_id })">
-                                <img class="pic-1" src="@item.product_imge">
-                            </a>
-                        </div>
+            }
 
-                        <div class="card-body">
-                            <h3 class="card-title text"><a href="@Url.Action("Show","Product",new {id=item.product_id })">@item.product_name</a></h3>
-                            <div class="card-text">
-                                <p class="text" style="font-size:small">@item.product_description</p>
-                                <span>$@item.product_price</span>
-                            </div>
-                            <a href="@Url.Action("Show","Product",new {id=item.product_id })" class="btn btn-primary">Details</a>
+        </ul>
+    </div>*@
+    <div class="row">
+        
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 col-sm-6">
+                <div class="product-grid">
+                    <div class="product-image">
 
+                        <a href="@Url.Action("Show","Product",new {id=item.product_id })">
+                            <img class="pic-1" src="@item.product_imge">
+                        </a>
+                    </div>
+
+                    <div class="product-content">
+                        <h3 class="title"><a href="#">@item.product_name</a></h3>
+                        <div class="price">
+
+                            <span>$@item.product_price</span>
                         </div>
 
                     </div>
+
                 </div>
-                @**@
-            }
-            <hr />
-            @*</div>*@
-        </div>
+            </div>
+
+        }
+        <hr />
     </div>
 </div>

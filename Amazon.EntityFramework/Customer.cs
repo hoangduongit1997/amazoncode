@@ -21,7 +21,7 @@ namespace Amazon.EntityFramework
         [StringLength(100)]
         public string customer_name { get; set; }
 
-        [StringLength(100)]
+        [StringLength(50)]
         public string email_address { get; set; }
 
         [StringLength(10)]
@@ -30,7 +30,7 @@ namespace Amazon.EntityFramework
         [StringLength(100)]
         public string address { get; set; }
 
-        [StringLength(100)]
+        [StringLength(20)]
         public string login_name { get; set; }
 
         [StringLength(10)]
