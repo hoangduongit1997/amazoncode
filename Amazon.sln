@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.DAL", "Amazon.DAL\Am
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.EntityFramework", "Amazon.EntityFramework\Amazon.EntityFramework.csproj", "{C06077DF-024E-47D0-A855-1AA7EF609A05}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmazonWebAPI", "AmazonWebAPI\AmazonWebAPI.csproj", "{53FBD545-9FCE-45E3-A893-F7760FAD3568}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.DTO", "Amazon.DTO\Amazon.DTO.csproj", "{B6126F37-6B44-436B-B7DE-7A7A52E55E69}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{C06077DF-024E-47D0-A855-1AA7EF609A05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C06077DF-024E-47D0-A855-1AA7EF609A05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C06077DF-024E-47D0-A855-1AA7EF609A05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53FBD545-9FCE-45E3-A893-F7760FAD3568}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53FBD545-9FCE-45E3-A893-F7760FAD3568}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53FBD545-9FCE-45E3-A893-F7760FAD3568}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53FBD545-9FCE-45E3-A893-F7760FAD3568}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6126F37-6B44-436B-B7DE-7A7A52E55E69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6126F37-6B44-436B-B7DE-7A7A52E55E69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6126F37-6B44-436B-B7DE-7A7A52E55E69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6126F37-6B44-436B-B7DE-7A7A52E55E69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
