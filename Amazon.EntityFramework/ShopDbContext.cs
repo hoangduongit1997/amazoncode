@@ -27,7 +27,6 @@ namespace Amazon.EntityFramework
         public virtual DbSet<Ref_Product_Types> Ref_Product_Types { get; set; }
         public virtual DbSet<Shipment> Shipments { get; set; }
         public virtual DbSet<Slider> Sliders { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
