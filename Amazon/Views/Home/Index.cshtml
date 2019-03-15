@@ -3,12 +3,12 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
-    var listNewProduct = (List<Amazon.EntityFramework.Product>)ViewBag.NewProduct;
-    var topDeal = (List<Amazon.EntityFramework.Product>)ViewBag.TopDeal;
-    var SessionUser = (Amazon.EntityFramework.Customer)ViewBag.SessionUser;
+    var listNewProduct = (List<Amazon.DTO.ProductDTO>)ViewBag.NewProduct;
+    var topDeal = (List<Amazon.DTO.ProductDTO>)ViewBag.TopDeal;
+  //  var SessionUser = (Amazon.EntityFramework.Customer)ViewBag.SessionUser;
 }
 
-@{Html.RenderAction("Slider", "Home"); }
+@*@{Html.RenderAction("Slider", "Home"); }*@
 <div id="Contain">
     <div class="container-fluid text-center bg-grey">
         <div class="row text-center">
@@ -75,78 +75,13 @@
 
     </div>
 </div>
-@*<div class="container testimonial-group">
-        <div>
-            <p id="discover">Top deals  <a href="#">See all deals</a></p>
-        </div>
-        <div class="row text-center">
-            <div class="col-xs-3">
-                <img class="hinh" src="~/Image/31K1W4NA8DL.__AC_SY200_.jpg" alt="Image" />
-                <p class="price">$12.8</p>
-            </div>
-            <div class="col-xs-3">
-                <img class="hinh" src="~/Image/4156XclY4QL.__AC_SY200_.jpg" alt="Image" />
-                <p class="price">$12.8</p>
-            </div>
 
-            <div class="col-xs-3">
-                <img class="hinh" src="~/Image/41cVh191OaL.__AC_SY200_.jpg" alt="Image" />
-                <p class="price">$12.8</p>
-            </div>
-
-            <div class="col-xs-3">
-                <img class="hinh" src="~/Image/41dD8ys8N6L.__AC_SY200_.jpg" alt="Image" />
-                <p class="price">$12.8</p>
-            </div>
-
-            <div class="col-xs-3">
-                <img class="hinh" src="~/Image/41jICXbktML.__AC_SY200_.jpg" alt="Image" />
-                <p class="price">$12.8</p>
-            </div>
-
-            <div class="col-xs-3">
-                <img class="hinh" src="~/Image/41JjewNkN0L.__AC_SY200_.jpg" alt="Image" />
-                <p class="price">$12.8</p>
-            </div>
-
-            <div class="col-xs-3"><img class="hinh" src="~/Image/518LAjvtL-L.__AC_SY200_.jpg" alt="Image" /> <p class="price">$12.8</p></div>
-            <div class="col-xs-3"><img class="hinh" src="~/Image/51nOR2bEWNL.__AC_SY200_.jpg" alt="Image" /> <p class="price">$12.8</p></div>
-
-        </div>
-    </div>
-    <div class="container testimonial-group">
-        <div>
-            <p id="discover">Trending in video games  <a href="#">See more</a></p>
-        </div>
-        <div class="row text-center">
-            <div class="col-xs-3 payment">
-                <img class="hinh" src="~/Image/31K1W4NA8DL.__AC_SY200_.jpg" alt="Image" />
-
-            </div>
-            <div class="col-xs-3">
-                <img class="hinh" src="~/Image/4156XclY4QL.__AC_SY200_.jpg" alt="Image" />
-
-            </div>
-
-            <div class="col-xs-3"><img class="hinh" src="~/Image/41cVh191OaL.__AC_SY200_.jpg" alt="Image" /></div>
-
-            <div class="col-xs-3"><img class="hinh" src="~/Image/41dD8ys8N6L.__AC_SY200_.jpg" alt="Image" /></div>
-
-            <div class="col-xs-3"><img class="hinh" src="~/Image/41jICXbktML.__AC_SY200_.jpg" alt="Image" /></div>
-
-            <div class="col-xs-3"><img class="hinh" src="~/Image/41JjewNkN0L.__AC_SY200_.jpg" alt="Image" /></div>
-
-            <div class="col-xs-3"><img class="hinh" src="~/Image/518LAjvtL-L.__AC_SY200_.jpg" alt="Image" /></div>
-            <div class="col-xs-3"><img class="hinh" src="~/Image/51nOR2bEWNL.__AC_SY200_.jpg" alt="Image" /></div>
-
-        </div>
-    </div>*@
 <div class="container testimonial-group">
     <div>
-        @if (SessionUser != null)
+        @*@if (SessionUser != null)
         {
             <p>@SessionUser.customer_name</p>
-        }
+        }*@
 
 
         <p id="discover">New Product <a href="#">See more</a></p>

@@ -56,6 +56,9 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
@@ -65,6 +68,16 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -115,9 +128,6 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -143,6 +153,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\CustomersController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
@@ -157,6 +168,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Cart\CartItemModel.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Models\User\LoginModel.cs" />
     <Compile Include="Models\User\RegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2507,71 +2519,6 @@
     <Content Include="Upload\image\logo\Shoveler_EN_Shipping_1X._CB457446307_.jpg" />
     <Content Include="Upload\image\logo\Shoveler_EN_TrackPackage_1X._CB457446306_.jpg" />
     <Content Include="Upload\image\logo\womandress.PNG" />
-    <Content Include="Upload\image\product\000001.jpg" />
-    <Content Include="Upload\image\product\000002.jpg" />
-    <Content Include="Upload\image\product\000003.jpg" />
-    <Content Include="Upload\image\product\000004.jpg" />
-    <Content Include="Upload\image\product\000005.jpg" />
-    <Content Include="Upload\image\product\000006.jpg" />
-    <Content Include="Upload\image\product\000007.jpg" />
-    <Content Include="Upload\image\product\000008.jpg" />
-    <Content Include="Upload\image\product\000009.jpg" />
-    <Content Include="Upload\image\product\000010.jpg" />
-    <Content Include="Upload\image\product\000011.jpg" />
-    <Content Include="Upload\image\product\000012.jpg" />
-    <Content Include="Upload\image\product\000013.jpg" />
-    <Content Include="Upload\image\product\000014.jpg" />
-    <Content Include="Upload\image\product\000015.jpg" />
-    <Content Include="Upload\image\product\000016.jpg" />
-    <Content Include="Upload\image\product\000017.jpg" />
-    <Content Include="Upload\image\product\000018.jpg" />
-    <Content Include="Upload\image\product\000019.jpg" />
-    <Content Include="Upload\image\product\000020.jpg" />
-    <Content Include="Upload\image\product\000021.jpg" />
-    <Content Include="Upload\image\product\000022.jpg" />
-    <Content Include="Upload\image\product\000023.jpg" />
-    <Content Include="Upload\image\product\000024.jpg" />
-    <Content Include="Upload\image\product\000025.jpg" />
-    <Content Include="Upload\image\product\000026.jpg" />
-    <Content Include="Upload\image\product\000027.jpg" />
-    <Content Include="Upload\image\product\000028.jpg" />
-    <Content Include="Upload\image\product\000029.jpg" />
-    <Content Include="Upload\image\product\000030.jpg" />
-    <Content Include="Upload\image\product\000031.jpg" />
-    <Content Include="Upload\image\product\000032.jpg" />
-    <Content Include="Upload\image\product\000033.jpg" />
-    <Content Include="Upload\image\product\000034.jpg" />
-    <Content Include="Upload\image\product\000035.jpg" />
-    <Content Include="Upload\image\product\000036.jpg" />
-    <Content Include="Upload\image\product\000037.jpg" />
-    <Content Include="Upload\image\product\000038.jpg" />
-    <Content Include="Upload\image\product\000039.jpg" />
-    <Content Include="Upload\image\product\000040.jpg" />
-    <Content Include="Upload\image\product\000041.jpg" />
-    <Content Include="Upload\image\product\000042.jpg" />
-    <Content Include="Upload\image\product\000043.jpg" />
-    <Content Include="Upload\image\product\000044.jpg" />
-    <Content Include="Upload\image\product\000045.jpg" />
-    <Content Include="Upload\image\product\000046.jpg" />
-    <Content Include="Upload\image\product\000047.jpg" />
-    <Content Include="Upload\image\product\000048.jpg" />
-    <Content Include="Upload\image\product\000049.jpg" />
-    <Content Include="Upload\image\product\000050.jpg" />
-    <Content Include="Upload\image\product\000051.jpg" />
-    <Content Include="Upload\image\product\000052.jpg" />
-    <Content Include="Upload\image\product\000053.jpg" />
-    <Content Include="Upload\image\product\000054.jpg" />
-    <Content Include="Upload\image\product\000055.jpg" />
-    <Content Include="Upload\image\product\000056.jpg" />
-    <Content Include="Upload\image\product\000057.jpg" />
-    <Content Include="Upload\image\product\000058.jpg" />
-    <Content Include="Upload\image\product\000059.jpg" />
-    <Content Include="Upload\image\product\000060.jpg" />
-    <Content Include="Upload\image\product\000061.jpg" />
-    <Content Include="Upload\image\product\000062.jpg" />
-    <Content Include="Upload\image\product\000063.jpg" />
-    <Content Include="Upload\image\product\000064.jpg" />
-    <Content Include="Upload\image\product\10799735_955247194489946_1847856557_n.jpg" />
     <Content Include="Upload\image\product\216kvUb-ZNL._AC_SY200_.jpg" />
     <Content Include="Upload\image\product\311eeWMduvL.__AC_SY200_.jpg" />
     <Content Include="Upload\image\product\312GPDX8kwL._AC_SY200_.jpg" />
@@ -2616,14 +2563,7 @@
     <Content Include="Upload\image\product\51pwzDnEF+L._AC_SY200_.jpg" />
     <Content Include="Upload\image\product\51rMK3HezLL._AC_SY200_.jpg" />
     <Content Include="Upload\image\product\51ZWF-gxYAL._AC_SY200_.jpg" />
-    <Content Include="Upload\image\product\994849_563440020371129_1594360530_n.jpg" />
-    <Content Include="Upload\image\product\a.jpg" />
-    <Content Include="Upload\image\product\a123.jpg" />
-    <Content Include="Upload\image\product\aadasdsa.jpg" />
-    <Content Include="Upload\image\product\asp.net-mvc.jpg" />
-    <Content Include="Upload\image\product\b.jpg" />
     <Content Include="Upload\image\product\disk.png" />
-    <Content Include="Upload\image\product\dsadas.jpg" />
     <Content Include="Upload\image\product\DURM-30AE219A4CC25SJT.__AC_SY200_.jpeg" />
     <Content Include="Upload\image\product\DURM-30F84B076FDFDEIV.__AC_SY200_.jpeg" />
     <Content Include="Upload\image\product\gamepad.jpg" />
@@ -2633,7 +2573,6 @@
     <Content Include="Upload\image\product\Iphone6.jpg" />
     <Content Include="Upload\image\product\Iphone6s.jpg" />
     <Content Include="Upload\image\product\Iphone8.jpg" />
-    <Content Include="Upload\image\product\nnn.jpg" />
     <Content Include="Upload\image\product\samsungs7.jpg" />
     <Content Include="Upload\image\product\samsungs8.jpg" />
     <Content Include="Upload\image\product\Sony.jpg" />
@@ -2664,6 +2603,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -2679,13 +2619,13 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Amazon.BUS\Amazon.BUS.csproj">
-      <Project>{56ad46ea-c4e9-4ec4-bb43-71de8bc8dabe}</Project>
-      <Name>Amazon.BUS</Name>
+    <ProjectReference Include="..\Amazon.DTO\Amazon.DTO.csproj">
+      <Project>{b6126f37-6b44-436b-b7de-7a7a52e55e69}</Project>
+      <Name>Amazon.DTO</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Amazon.EntityFramework\Amazon.EntityFramework.csproj">
-      <Project>{c06077df-024e-47d0-a855-1aa7ef609a05}</Project>
-      <Name>Amazon.EntityFramework</Name>
+    <ProjectReference Include="..\AmazonWebAPI\AmazonWebAPI.csproj">
+      <Project>{53fbd545-9fce-45e3-a893-f7760fad3568}</Project>
+      <Name>AmazonWebAPI</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
@@ -2721,6 +2661,11 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
