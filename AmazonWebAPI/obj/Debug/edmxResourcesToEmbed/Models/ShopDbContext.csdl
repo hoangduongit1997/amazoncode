@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SHOPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="customer_id" />
+    </Key>
+    <Property Name="customer_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="customer_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="email_address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phone_number" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="login_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="login_password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Customers" FromRole="Customers" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="employee_id" />
+    </Key>
+    <Property Name="employee_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="employee_password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="employee_status" Type="Boolean" />
+    <Property Name="employee_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email_address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phone_number" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Footer">
+    <Key>
+      <PropertyRef Name="FooterID" />
+    </Key>
+    <Property Name="FooterID" Type="Int32" Nullable="false" />
+    <Property Name="Contain" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="FooterIDType" Type="Int32" />
+    <Property Name="FooterParentID" Type="Int32" />
+    <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Target" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Invoice">
+    <Key>
+      <PropertyRef Name="invoice_number" />
+    </Key>
+    <Property Name="invoice_number" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="order_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="invoice_date" Type="DateTime" Precision="0" />
+    <Property Name="invoice_status_code" Type="Int32" />
+    <Property Name="invoice_total_money" Type="Single" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Invoices_Orders" FromRole="Invoices" ToRole="Orders" />
+    <NavigationProperty Name="Ref_Invoice_Status_Codes" Relationship="Self.FK_Invoices_Ref_Invoice_Status_Codes" FromRole="Invoices" ToRole="Ref_Invoice_Status_Codes" />
+    <NavigationProperty Name="Payments" Relationship="Self.FK_Payments_Invoices" FromRole="Invoices" ToRole="Payments" />
+    <NavigationProperty Name="Shipments" Relationship="Self.FK_Shipments_Invoices" FromRole="Invoices" ToRole="Shipments" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="MenuID" />
+    </Key>
+    <Property Name="MenuID" Type="Int32" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Link" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayOrder" Type="Int32" />
+    <Property Name="Target" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="MenuTypeID" Type="Int32" />
+    <Property Name="MenuParentID" Type="Int32" />
+    <Property Name="Icon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Properti" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Order_items">
+    <Key>
+      <PropertyRef Name="order_item_id" />
+    </Key>
+    <Property Name="order_item_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="order_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="product_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="order_item_status_code" Type="Int32" />
+    <Property Name="order_item_quantity" Type="Int32" />
+    <Property Name="order_item_price" Type="Single" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Order_items_Orders" FromRole="Order_items" ToRole="Orders" />
+    <NavigationProperty Name="Ref_Order_Item_Status_Codes" Relationship="Self.FK_Order_items_Ref_Order_Item_Status_Codes" FromRole="Order_items" ToRole="Ref_Order_Item_Status_Codes" />
+    <NavigationProperty Name="Shipments" Relationship="Self.Shipment_Items" FromRole="Order_items" ToRole="Shipments" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="order_id" />
+    </Key>
+    <Property Name="order_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="customer_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="date_order" Type="DateTime" Precision="0" />
+    <Property Name="order_place" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="order_note" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="total_price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="order_status_code" Type="Int32" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_Orders_Customers" FromRole="Orders" ToRole="Customers" />
+    <NavigationProperty Name="Invoices" Relationship="Self.FK_Invoices_Orders" FromRole="Orders" ToRole="Invoices" />
+    <NavigationProperty Name="Order_items" Relationship="Self.FK_Order_items_Orders" FromRole="Orders" ToRole="Order_items" />
+    <NavigationProperty Name="Ref_Order_Status_Codes" Relationship="Self.FK_Orders_Ref_Order_Status_Codes" FromRole="Orders" ToRole="Ref_Order_Status_Codes" />
+    <NavigationProperty Name="Shipments" Relationship="Self.FK_Shipments_Orders" FromRole="Orders" ToRole="Shipments" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="payment_id" />
+    </Key>
+    <Property Name="payment_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="invoice_number" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="payment_date" Type="DateTime" Precision="0" />
+    <Property Name="payment_amount" Type="Single" />
+    <NavigationProperty Name="Invoice" Relationship="Self.FK_Payments_Invoices" FromRole="Payments" ToRole="Invoices" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="product_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="product_type_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="product_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="product_price" Type="Single" />
+    <Property Name="product_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="product_size" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="product_color" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="product_imge" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="more_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="createddate" Type="DateTime" Precision="3" />
+    <Property Name="promotionprice" Type="Single" />
+    <NavigationProperty Name="Ref_Product_Types" Relationship="Self.FK__Products__produc__4AB81AF0" FromRole="Products" ToRole="Ref_Product_Types" />
+  </EntityType>
+  <EntityType Name="Ref_Invoice_Status_Codes">
+    <Key>
+      <PropertyRef Name="invoice_status_code" />
+    </Key>
+    <Property Name="invoice_status_code" Type="Int32" Nullable="false" />
+    <Property Name="invoice_status_description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Invoices" Relationship="Self.FK_Invoices_Ref_Invoice_Status_Codes" FromRole="Ref_Invoice_Status_Codes" ToRole="Invoices" />
+  </EntityType>
+  <EntityType Name="Ref_Order_Item_Status_Codes">
+    <Key>
+      <PropertyRef Name="order_item_status_code" />
+    </Key>
+    <Property Name="order_item_status_code" Type="Int32" Nullable="false" />
+    <Property Name="order_item_status_description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Order_items" Relationship="Self.FK_Order_items_Ref_Order_Item_Status_Codes" FromRole="Ref_Order_Item_Status_Codes" ToRole="Order_items" />
+  </EntityType>
+  <EntityType Name="Ref_Order_Status_Codes">
+    <Key>
+      <PropertyRef Name="order_status_code" />
+    </Key>
+    <Property Name="order_status_code" Type="Int32" Nullable="false" />
+    <Property Name="order_status_decription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Ref_Order_Status_Codes" FromRole="Ref_Order_Status_Codes" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Ref_Product_Types">
+    <Key>
+      <PropertyRef Name="product_type_code" />
+    </Key>
+    <Property Name="product_type_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="product_type_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK__Products__produc__4AB81AF0" FromRole="Ref_Product_Types" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Shipment">
+    <Key>
+      <PropertyRef Name="shipment_id" />
+    </Key>
+    <Property Name="shipment_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="order_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="invoice_number" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="shipment_date" Type="DateTime" Precision="0" />
+    <Property Name="shipment_tracking_number" Type="Int32" />
+    <NavigationProperty Name="Invoice" Relationship="Self.FK_Shipments_Invoices" FromRole="Shipments" ToRole="Invoices" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Shipments_Orders" FromRole="Shipments" ToRole="Orders" />
+    <NavigationProperty Name="Order_items" Relationship="Self.Shipment_Items" FromRole="Shipments" ToRole="Order_items" />
+  </EntityType>
+  <EntityType Name="Slider">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayOrder" Type="Int32" />
+    <Property Name="Link" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Priority" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_Orders_Customers">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="customer_id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Invoices_Orders">
+    <End Role="Orders" Type="Self.Order" Multiplicity="0..1" />
+    <End Role="Invoices" Type="Self.Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="order_id" />
+      </Principal>
+      <Dependent Role="Invoices">
+        <PropertyRef Name="order_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Invoices_Ref_Invoice_Status_Codes">
+    <End Role="Ref_Invoice_Status_Codes" Type="Self.Ref_Invoice_Status_Codes" Multiplicity="0..1" />
+    <End Role="Invoices" Type="Self.Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ref_Invoice_Status_Codes">
+        <PropertyRef Name="invoice_status_code" />
+      </Principal>
+      <Dependent Role="Invoices">
+        <PropertyRef Name="invoice_status_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payments_Invoices">
+    <End Role="Invoices" Type="Self.Invoice" Multiplicity="0..1" />
+    <End Role="Payments" Type="Self.Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Invoices">
+        <PropertyRef Name="invoice_number" />
+      </Principal>
+      <Dependent Role="Payments">
+        <PropertyRef Name="invoice_number" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Shipments_Invoices">
+    <End Role="Invoices" Type="Self.Invoice" Multiplicity="0..1" />
+    <End Role="Shipments" Type="Self.Shipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Invoices">
+        <PropertyRef Name="invoice_number" />
+      </Principal>
+      <Dependent Role="Shipments">
+        <PropertyRef Name="invoice_number" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_items_Orders">
+    <End Role="Orders" Type="Self.Order" Multiplicity="0..1" />
+    <End Role="Order_items" Type="Self.Order_items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="order_id" />
+      </Principal>
+      <Dependent Role="Order_items">
+        <PropertyRef Name="order_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_items_Ref_Order_Item_Status_Codes">
+    <End Role="Ref_Order_Item_Status_Codes" Type="Self.Ref_Order_Item_Status_Codes" Multiplicity="0..1" />
+    <End Role="Order_items" Type="Self.Order_items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ref_Order_Item_Status_Codes">
+        <PropertyRef Name="order_item_status_code" />
+      </Principal>
+      <Dependent Role="Order_items">
+        <PropertyRef Name="order_item_status_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Ref_Order_Status_Codes">
+    <End Role="Ref_Order_Status_Codes" Type="Self.Ref_Order_Status_Codes" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ref_Order_Status_Codes">
+        <PropertyRef Name="order_status_code" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="order_status_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Shipments_Orders">
+    <End Role="Orders" Type="Self.Order" Multiplicity="0..1" />
+    <End Role="Shipments" Type="Self.Shipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="order_id" />
+      </Principal>
+      <Dependent Role="Shipments">
+        <PropertyRef Name="order_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Products__produc__4AB81AF0">
+    <End Role="Ref_Product_Types" Type="Self.Ref_Product_Types" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ref_Product_Types">
+        <PropertyRef Name="product_type_code" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="product_type_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Shipment_Items">
+    <End Role="Order_items" Type="Self.Order_items" Multiplicity="*" />
+    <End Role="Shipments" Type="Self.Shipment" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="SHOPEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="Footers" EntityType="Self.Footer" />
+    <EntitySet Name="Invoices" EntityType="Self.Invoice" />
+    <EntitySet Name="Menus" EntityType="Self.Menu" />
+    <EntitySet Name="Order_items" EntityType="Self.Order_items" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="Payments" EntityType="Self.Payment" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="Ref_Invoice_Status_Codes" EntityType="Self.Ref_Invoice_Status_Codes" />
+    <EntitySet Name="Ref_Order_Item_Status_Codes" EntityType="Self.Ref_Order_Item_Status_Codes" />
+    <EntitySet Name="Ref_Order_Status_Codes" EntityType="Self.Ref_Order_Status_Codes" />
+    <EntitySet Name="Ref_Product_Types" EntityType="Self.Ref_Product_Types" />
+    <EntitySet Name="Shipments" EntityType="Self.Shipment" />
+    <EntitySet Name="Sliders" EntityType="Self.Slider" />
+    <AssociationSet Name="FK_Orders_Customers" Association="Self.FK_Orders_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Invoices_Orders" Association="Self.FK_Invoices_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Invoices" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Invoices_Ref_Invoice_Status_Codes" Association="Self.FK_Invoices_Ref_Invoice_Status_Codes">
+      <End Role="Ref_Invoice_Status_Codes" EntitySet="Ref_Invoice_Status_Codes" />
+      <End Role="Invoices" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payments_Invoices" Association="Self.FK_Payments_Invoices">
+      <End Role="Invoices" EntitySet="Invoices" />
+      <End Role="Payments" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Shipments_Invoices" Association="Self.FK_Shipments_Invoices">
+      <End Role="Invoices" EntitySet="Invoices" />
+      <End Role="Shipments" EntitySet="Shipments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_items_Orders" Association="Self.FK_Order_items_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Order_items" EntitySet="Order_items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_items_Ref_Order_Item_Status_Codes" Association="Self.FK_Order_items_Ref_Order_Item_Status_Codes">
+      <End Role="Ref_Order_Item_Status_Codes" EntitySet="Ref_Order_Item_Status_Codes" />
+      <End Role="Order_items" EntitySet="Order_items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Ref_Order_Status_Codes" Association="Self.FK_Orders_Ref_Order_Status_Codes">
+      <End Role="Ref_Order_Status_Codes" EntitySet="Ref_Order_Status_Codes" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Shipments_Orders" Association="Self.FK_Shipments_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Shipments" EntitySet="Shipments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Products__produc__4AB81AF0" Association="Self.FK__Products__produc__4AB81AF0">
+      <End Role="Ref_Product_Types" EntitySet="Ref_Product_Types" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="Shipment_Items" Association="Self.Shipment_Items">
+      <End Role="Order_items" EntitySet="Order_items" />
+      <End Role="Shipments" EntitySet="Shipments" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Amazon.EntityFramework;
 using PagedList;
-
+using Amazon.DTO;
 namespace Amazon.DAL
 {
     public class ProductDAL
@@ -15,13 +15,38 @@ namespace Amazon.DAL
         {
             db = new ShopDbContext();
         }
-        /*
-         * This is Khang's comment
-         * Khang is here, so what's up ??
-         */
-        public Product ViewDetail(string id)
+        public List<ProductDTO> GetAll()
         {
-            return db.Products.Find(id);
+            var pro = from item in db.Products
+                      select new ProductDTO
+                      {
+                          product_id = item.product_id,
+                          product_type_code = item.product_type_code,
+                          product_color = item.product_color,
+                          product_description = item.product_description,
+                          product_imge = item.product_imge,
+                          product_name = item.product_name,
+                          product_price = item.product_price,
+                          product_size = item.product_size,
+                          promotionprice = item.promotionprice
+                      };
+            return pro.ToList<ProductDTO>();
+        }
+        public ProductDTO ViewDetail(string id)
+        {
+            var pro=  db.Products.Select(item => new ProductDTO()                          
+                           {
+                                product_id = item.product_id,
+                                product_type_code = item.product_type_code,
+                                product_color = item.product_color,
+                                product_description = item.product_description,
+                                product_imge = item.product_imge,
+                                product_name = item.product_name,
+                                product_price = item.product_price,
+                                product_size = item.product_size,
+                                promotionprice = item.promotionprice
+                             }).SingleOrDefault(b => b.product_id == id);          
+            return pro;
         }
 
         public List<Product> ListRelatedProducts(string productId)
