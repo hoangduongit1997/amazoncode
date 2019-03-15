@@ -72,10 +72,11 @@
                         </div>
                     </div>
                     @* Partial Main menu*@
-                    @*@{Html.RenderAction("MainMenu", "Home");}*@
+                    @{Html.Action("MainMenu", "Home");}
                 </div>
             </div>
         </nav>
+
     </div>
     <div class="main">
 
@@ -84,7 +85,7 @@
     </div>
     @*Partial Footer*@
     <div class="contain chan">
-        @*@{ Html.RenderAction("Footer", "Home");}*@
+        @*@{ Html.Action("Footer", "Home");}*@
     </div>
     @RenderSection("jsFooter", required: false)
 

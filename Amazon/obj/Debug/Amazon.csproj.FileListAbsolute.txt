@@ -214,3 +214,8 @@ C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon\bin\Amazon.DAL.pdb
 C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon\bin\Amazon.DAL.dll.config
 C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon\bin\Amazon.EntityFramework.pdb
 C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon\bin\Amazon.EntityFramework.dll.config
+C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon\bin\AutoMapper.dll
+C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon\bin\System.ValueTuple.dll
+C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon\bin\AutoMapper.pdb
+C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon\bin\AutoMapper.xml
+C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon\bin\System.ValueTuple.xml
