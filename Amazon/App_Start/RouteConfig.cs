@@ -16,25 +16,26 @@ namespace Amazon
            
 
             routes.MapRoute(
-                name: "Home",
-                url: "{controller}/{action}",
-                defaults: new { controller = "Home", action = "Index"}
+                name: "Default",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                  namespaces: new[] { "Amazon.Controllers" }
             );
-            routes.MapRoute(
-               name: "Defaulta",
-               url: "{controller}/{action}/{id}",
-               defaults: new { controller = "User", action = "Regist", id = UrlParameter.Optional }
-           );
-            routes.MapRoute(
-               name: "Defaultfff",
-               url: "Admin/{controller}/{action}/{id}",
-               defaults: new { controller = "ProductAD", action = "Create", id = UrlParameter.Optional }
-           );
-            routes.MapRoute(
-             name: "Defaultfffss",
-             url: "{controller}/{action}",
-             defaults: new { controller = "User", action = "Login"}
-         );
+           // routes.MapRoute(
+           //    name: "Defaulta",
+           //    url: "{controller}/{action}/{id}",
+           //    defaults: new { controller = "User", action = "Regist", id = UrlParameter.Optional }
+           //);
+           // routes.MapRoute(
+           //    name: "Defaultfff",
+           //    url: "Admin/{controller}/{action}/{id}",
+           //    defaults: new { controller = "ProductAD", action = "Create", id = UrlParameter.Optional }
+           //);
+           // routes.MapRoute(
+           //  name: "Defaultfffss",
+           //  url: "{controller}/{action}",
+           //  defaults: new { controller = "User", action = "Login"}
+        // );
         }
     }
 }

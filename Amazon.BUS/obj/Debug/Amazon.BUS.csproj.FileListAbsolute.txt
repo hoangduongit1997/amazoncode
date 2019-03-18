@@ -247,3 +247,8 @@ C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon.BUS\obj\Debug\Amazon.BUS.cspr
 C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon.BUS\bin\Debug\Amazon.DTO.dll
 C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon.BUS\bin\Debug\Amazon.DTO.pdb
 C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon.BUS\bin\Debug\Amazon.DTO.dll.config
+C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon.BUS\bin\Debug\AutoMapper.dll
+C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon.BUS\bin\Debug\System.ValueTuple.dll
+C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon.BUS\bin\Debug\AutoMapper.pdb
+C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon.BUS\bin\Debug\AutoMapper.xml
+C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon.BUS\bin\Debug\System.ValueTuple.xml

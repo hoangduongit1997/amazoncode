@@ -107,3 +107,8 @@ C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\AmazonWebAPI\obj\Debug\AmazonWebAPI.
 C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\AmazonWebAPI\bin\Amazon.DTO.dll
 C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\AmazonWebAPI\bin\Amazon.DTO.pdb
 C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\AmazonWebAPI\bin\Amazon.DTO.dll.config
+C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\AmazonWebAPI\bin\AutoMapper.dll
+C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\AmazonWebAPI\bin\System.ValueTuple.dll
+C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\AmazonWebAPI\bin\AutoMapper.pdb
+C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\AmazonWebAPI\bin\AutoMapper.xml
+C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\AmazonWebAPI\bin\System.ValueTuple.xml
