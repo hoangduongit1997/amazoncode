@@ -1,4 +1,4 @@
-﻿@model PagedList.IPagedList<Amazon.EntityFramework.Product>
+﻿@model PagedList.IPagedList<Amazon.DTO.ProductDTO>
 @using PagedList.Mvc
 @{
     ViewBag.Title = "Product";
@@ -57,7 +57,7 @@
 
                                     </td>
                                     <td>@item.product_id</td>
-                                    <td>@item.Ref_Product_Types.product_type_description</td>
+                                    <td>@*@item.Ref_Product_Types.product_type_description*@ - </td>
                                     <td>@item.product_name</td>
                                     <td>@item.product_price</td>
                                     <td>@item.product_description</td>

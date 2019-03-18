@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Amazon.Areas.Admin.Controllers
 {
-    public class HomeAdminController : BaseController
+    public class HomeAdminController : Controller
     {
         // GET: Admin/HomeAdmin
         public ActionResult Index()

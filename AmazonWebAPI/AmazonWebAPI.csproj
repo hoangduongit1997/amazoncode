@@ -177,6 +177,7 @@
     <Compile Include="Controllers\HomeApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ProductTypesController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -247,6 +248,7 @@
     <Compile Include="Services\CustomerRepository.cs" />
     <Compile Include="Services\MenuRepository.cs" />
     <Compile Include="Services\ProductRepository.cs" />
+    <Compile Include="Services\ProductTypeRepository.cs" />
     <Compile Include="Services\SlideRepository.cs" />
     <Compile Include="Services\UserRepository.cs" />
   </ItemGroup>

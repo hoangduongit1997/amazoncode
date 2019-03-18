@@ -11,3 +11,16 @@ C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon.DTO\bin\Debug\System.Net.Http
 C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon.DTO\obj\Debug\Amazon.DTO.csproj.App.config
 C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon.DTO\obj\Debug\Amazon.DTO.csprojAssemblyReference.cache
 C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon.DTO\obj\Debug\Amazon.DTO.csproj.CopyComplete
+D:\Github\GitTest\amazoncode\Amazon.DTO\bin\Debug\Amazon.DTO.dll.config
+D:\Github\GitTest\amazoncode\Amazon.DTO\bin\Debug\Amazon.DTO.dll
+D:\Github\GitTest\amazoncode\Amazon.DTO\bin\Debug\Amazon.DTO.pdb
+D:\Github\GitTest\amazoncode\Amazon.DTO\bin\Debug\System.Net.Http.Extensions.dll
+D:\Github\GitTest\amazoncode\Amazon.DTO\bin\Debug\System.Net.Http.Primitives.dll
+D:\Github\GitTest\amazoncode\Amazon.DTO\bin\Debug\System.Net.Http.Extensions.xml
+D:\Github\GitTest\amazoncode\Amazon.DTO\bin\Debug\System.Net.Http.Primitives.xml
+D:\Github\GitTest\amazoncode\Amazon.DTO\obj\Debug\Amazon.DTO.csproj.App.config
+D:\Github\GitTest\amazoncode\Amazon.DTO\obj\Debug\Amazon.DTO.csproj.CoreCompileInputs.cache
+D:\Github\GitTest\amazoncode\Amazon.DTO\obj\Debug\Amazon.DTO.csproj.CopyComplete
+D:\Github\GitTest\amazoncode\Amazon.DTO\obj\Debug\Amazon.DTO.dll
+D:\Github\GitTest\amazoncode\Amazon.DTO\obj\Debug\Amazon.DTO.pdb
+D:\Github\GitTest\amazoncode\Amazon.DTO\obj\Debug\Amazon.DTO.csprojAssemblyReference.cache
