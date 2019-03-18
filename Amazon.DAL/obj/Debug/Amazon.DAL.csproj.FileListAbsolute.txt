@@ -217,6 +217,8 @@ C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon.DAL\bin\Debug\System.Net.Http
 C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon.DAL\bin\Debug\System.Net.Http.Extensions.xml
 C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon.DAL\bin\Debug\System.Net.Http.Primitives.xml
 C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon.DAL\obj\Debug\Amazon.DAL.csproj.App.config
-C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon.DAL\bin\Debug\Amazon.DTO.dll
-C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon.DAL\bin\Debug\Amazon.DTO.pdb
-C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon.DAL\bin\Debug\Amazon.DTO.dll.config
+C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon.DAL\bin\Debug\AutoMapper.dll
+C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon.DAL\bin\Debug\System.ValueTuple.dll
+C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon.DAL\bin\Debug\AutoMapper.pdb
+C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon.DAL\bin\Debug\AutoMapper.xml
+C:\Users\vuong.nguyen\Desktop\Amazon\Amazon\Amazon.DAL\bin\Debug\System.ValueTuple.xml

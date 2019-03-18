@@ -17,7 +17,9 @@ namespace Amazon.DAL
 
         public List<Menu> ListMenu()
         {
-            return Db.Menus.Where(t =>t.Status == true).ToList();
+            var menu = db.Menus.Where(item => item.Status == true).ToList();
+
+            return menu;
         }
         
     }
