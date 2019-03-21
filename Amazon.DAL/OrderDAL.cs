@@ -35,5 +35,9 @@ namespace Amazon.DAL
             db.SaveChanges();
             return result.order_id;
         }
+        public Order FindByID(string orderID)
+        {
+            return Db.Orders.Find(orderID);
+        }
     }
 }

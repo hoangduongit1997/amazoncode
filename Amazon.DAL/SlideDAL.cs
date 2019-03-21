@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Amazon.EntityFramework;
-
 namespace Amazon.DAL
 {
    public class SlideDAL

@@ -23,7 +23,7 @@
 </head>
 <body>
     <div>
-        <nav style="background-image:url(../../Upload/image/logo/4.png)" class="navbar navbar-inverse ">
+        <nav class="navbar">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -70,9 +70,13 @@
                         <div class="navbar-header">
                             <a class="navbar-right" href="#"><img style=" width:350px; height:50px" id="logo_right" src="~/Upload/image/logo/logo2.png" alt="Shop today's deals" /></a>
                         </div>
+
                     </div>
-                    @* Partial Main menu*@
-                    @{Html.Action("MainMenu", "Home");}
+                    @*Partial Main menu*@
+                    @Html.Action("MainMenu", "Home"); 
+                   
+
+
                 </div>
             </div>
         </nav>
@@ -85,7 +89,7 @@
     </div>
     @*Partial Footer*@
     <div class="contain chan">
-        @*@{ Html.Action("Footer", "Home");}*@
+        @Html.Action("Footer", "Home");
     </div>
     @RenderSection("jsFooter", required: false)
 

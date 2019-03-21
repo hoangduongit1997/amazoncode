@@ -1,11 +1,10 @@
-﻿@using Amazon.EntityFramework;
-@model List<Footer>
+﻿@using Amazon.DTO;
+@model List<FooterDTO>
 <hr style="color: dimgrey"/>
 
 <footer id="footer">
-    <div class="container">
-        <ul style="list-style-type:none;" class="nav navbar-nav navbar-left container">
-
+    <ul style="list-style-type:none;" class="nav navbar-nav navbar-left container">       
+        <div class="container">
             @foreach (var item in Model.Where(t => t.FooterIDType == 1))
             {
                 var child = Model.Where(t => t.FooterIDType == 2 && t.FooterParentID == item.FooterID).ToList();
@@ -26,11 +25,12 @@
                     </li>
                 </div>
             }
-        </ul>
+            </div>
+    </ul>
         <div class="contain chu">
             <p>&copy; @DateTime.Now.Year - Amazon.com Webshop</p>
         </div>
-    </div>
+    @*</div>*@
     <a href="#" id="scroll" style="display: none;"><span></span></a>
     <script src="~/Content/JS/TopButton_2.js"></script>
 </footer>

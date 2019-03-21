@@ -23,17 +23,17 @@ namespace AmazonWebAPI.Controllers
             return productRepository.GetAllProduct();
            // return productRepository.GetOfType(typeID);
         }
-        [HttpGet]
-        [Route("api/product/Category={id:int}")]
-        public List<Product> GetOfType(string id)
-        {
-            return productRepository.GetOfType(id);
-        }
-        [HttpGet]
-        [Route("api/Product/ProductID={id:int}")]       
-        public ProductDTO Detail(string id)
-        {
-            return productRepository.Detail(id);
-        }
+        //[HttpGet]
+       // [Route("api/product/Category={id:int}")]
+        //public List<ProductDTO> GetOfType(string id)
+        //{
+        //    return productRepository.GetOfType(id);
+        //}
+        //[HttpGet]
+        //[Route("api/Product/ProductID={id:int}")]       
+        //public ProductDTO Detail(string id)
+        //{
+        //    return productRepository.Detail(id);
+        //}
     }
 }

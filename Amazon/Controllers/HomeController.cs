@@ -17,6 +17,13 @@ namespace Amazon.Controllers
         // GET: Home
         public HomeController()
         {
+            //trang này ngươi viết hả
+            //chính xác
+            //mấy  này ta chưa biết nó là gì
+            //ngươi tự mò tiếp đi
+            //kaka ok ok haizzz
+            //sao bữa nay ngươi code đẹp thế  :
+            //đẹp s cha :v
             client = new HttpClient();
             client.BaseAddress = new Uri(url);
             client.DefaultRequestHeaders.Accept.Clear();
@@ -41,9 +48,10 @@ namespace Amazon.Controllers
             return View();
         }        
         [ChildActionOnly]
-        public async Task<PartialViewResult> MainMenu()
+        public PartialViewResult MainMenu()
         {
-            HttpResponseMessage responseMessage = await client.GetAsync(url + "/Home/Menu");
+            HttpResponseMessage responseMessage =Task.Run(() => client.GetAsync(url + "/Home/Menu")).Result;
+            //HttpResponseMessage responseMessage = await client.GetAsync(url + "/Home/Menu");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var responseData = responseMessage.Content.ReadAsStringAsync().Result;
@@ -53,15 +61,15 @@ namespace Amazon.Controllers
                     MissingMemberHandling = MissingMemberHandling.Ignore
                 };
                 var list_menu = JsonConvert.DeserializeObject<List<MenuDTO>>(responseData, settings);
-                return PartialView(list_menu);
+               return PartialView(list_menu);
             }
            
             return PartialView();
         }
         [ChildActionOnly]
-        public async  Task<PartialViewResult> Slider()
+        public  PartialViewResult Slider()
         {
-            HttpResponseMessage responseMessage = await client.GetAsync(url + "/Home/Slide");
+            HttpResponseMessage responseMessage = Task.Run(() => client.GetAsync(url + "/Home/Slide")).Result;
             if (responseMessage.IsSuccessStatusCode)
             {
                 var responseData = responseMessage.Content.ReadAsStringAsync().Result;
@@ -72,6 +80,22 @@ namespace Amazon.Controllers
                 };
                 var list_slide =JsonConvert.DeserializeObject<List<SlideDTO>>(responseData, settings);
                 return PartialView(list_slide);
+            }
+            return PartialView();
+        }
+        public PartialViewResult Footer()
+        {
+            HttpResponseMessage responseMessage = Task.Run(() => client.GetAsync(url + "/Home/Footer")).Result;
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var responseData = responseMessage.Content.ReadAsStringAsync().Result;
+                var settings = new JsonSerializerSettings
+                {
+                    NullValueHandling = NullValueHandling.Ignore,
+                    MissingMemberHandling = MissingMemberHandling.Ignore
+                };
+                var list_footer = JsonConvert.DeserializeObject<List<FooterDTO>>(responseData, settings);
+                return PartialView(list_footer);
             }
             return PartialView();
         }

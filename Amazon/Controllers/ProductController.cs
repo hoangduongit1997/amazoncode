@@ -16,11 +16,8 @@ namespace Amazon.Controllers
 {
     public class ProductController : Controller
     {
-        HttpClient client;
-        //The URL of the WEB API Service
+        HttpClient client;  
         string url = "http://localhost:62993/api/product";
-
-
         public ProductController()
         {
             client = new HttpClient();
@@ -91,16 +88,7 @@ namespace Amazon.Controllers
                 return View(product);
             }
             return View("Error");
-
-
-
-
         }
-        //        public ActionResult Detail(string id)
-        //        {
-        //            var product = new ProductBUS().ViewDetail(id);
-        //            ViewBag.RelatedProducts = new ProductBUS().ListRelatedProducts(id);
-        //            return View(product);
-        //        }
+      
     }
 }

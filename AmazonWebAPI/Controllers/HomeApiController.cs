@@ -14,10 +14,12 @@ namespace AmazonWebAPI.Controllers
     {
         private MenuRepository menuRepository;
         private SlideRepository slideRepository;
+        private FooterRepository footerRepository;
         public HomeApiController()
         {
             MenuRepository = new MenuRepository();
             SlideRepository = new SlideRepository();
+            footerRepository = new FooterRepository();
         }
         public MenuRepository MenuRepository { get => menuRepository; set => menuRepository = value; }
         public SlideRepository SlideRepository { get => slideRepository; set => slideRepository = value; }
@@ -26,14 +28,20 @@ namespace AmazonWebAPI.Controllers
         [HttpGet]
         [Route("api/Home/Menu")]
         public List<MenuDTO> GetMenu()
-        {
-            return MenuRepository.ListMenu();
+        {            
+            return MenuRepository.ListMenu(); ;
         }
         [HttpGet]
         [Route("api/Home/Slide")]
         public List<SlideDTO> GetSlide()
         {
             return SlideRepository.ListSlide();
+        }
+        [HttpGet]
+        [Route("api/Home/Footer")]
+        public List<FooterDTO> GetFooter()
+        {
+            return footerRepository.ListFooter();
         }
     }
 }
