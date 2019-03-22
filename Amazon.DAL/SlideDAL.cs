@@ -16,9 +16,10 @@ namespace Amazon.DAL
         }
 
         public ShopDbContext Db { get => db; set => db = value; }
-        public List<Slider> Slider()
+      
+        public List<Slider> ListSlider()
         {
-            return db.Sliders.Where(t => t.Status == true).OrderBy(x=>x.DisplayOrder).ToList();
+            return Db.Sliders.Where(t => t.Status == true).OrderBy(x=>x.DisplayOrder).ToList();
         }
     }
 }

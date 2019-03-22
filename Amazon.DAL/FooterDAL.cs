@@ -10,7 +10,9 @@ namespace Amazon.DAL
    public class FooterDAL
     {
         ShopDbContext db = null;
-
+        /// <summary>
+        /// bam nó bay ra lỗi đó coi ok
+        /// </summary>
         public ShopDbContext Db { get => db; set => db = value; }
         public FooterDAL()
         {

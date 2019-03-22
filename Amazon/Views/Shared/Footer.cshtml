@@ -1,5 +1,5 @@
-﻿@using Amazon.EntityFramework;
-@model List<Footer>
+﻿@using Amazon.DTO;
+@model List<FooterDTO>
 <hr style="color: dimgrey"/>
 
 <footer id="footer">
@@ -26,11 +26,13 @@
                     </li>
                 </div>
             }
+
         </ul>
+        </div>
         <div class="contain chu">
             <p>&copy; @DateTime.Now.Year - Amazon.com Webshop</p>
         </div>
-    </div>
-    <a href="#" id="scroll" style="display: none;"><span></span></a>
-    <script src="~/Content/JS/TopButton_2.js"></script>
+        @*</div>*@
+        <a href="#" id="scroll" style="display: none;"><span></span></a>
+        <script src="~/Content/JS/TopButton_2.js"></script>
 </footer>

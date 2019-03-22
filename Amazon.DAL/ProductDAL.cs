@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Amazon.EntityFramework;
 using PagedList;
-using Amazon.DTO;
 namespace Amazon.DAL
 {
     public class ProductDAL
@@ -15,40 +14,15 @@ namespace Amazon.DAL
         {
             db = new ShopDbContext();
         }
-        public List<ProductDTO> GetAll()
+        public List<Product> GetAll()
         {
-            var pro = from item in db.Products
-                      select new ProductDTO
-                      {
-                          product_id = item.product_id,
-                          product_type_code = item.product_type_code,
-                          product_color = item.product_color,
-                          product_description = item.product_description,
-                          product_imge = item.product_imge,
-                          product_name = item.product_name,
-                          product_price = item.product_price,
-                          product_size = item.product_size,
-                          promotionprice = item.promotionprice
-                      };
-            return pro.ToList<ProductDTO>();
+            return db.Products.Select(t => t).ToList();
         }
-        public ProductDTO ViewDetail(string id)
+        public Product ViewDetail(string id)
         {
-            var pro=  db.Products.Select(item => new ProductDTO()                          
-                           {
-                                product_id = item.product_id,
-                                product_type_code = item.product_type_code,
-                                product_color = item.product_color,
-                                product_description = item.product_description,
-                                product_imge = item.product_imge,
-                                product_name = item.product_name,
-                                product_price = item.product_price,
-                                product_size = item.product_size,
-                                promotionprice = item.promotionprice
-                             }).SingleOrDefault(b => b.product_id == id);          
-            return pro;
-        }
-
+            var product = db.Products.Find(id);          
+            return product;
+        }      
         public List<Product> ListRelatedProducts(string productId)
         {
             var product = db.Products.Find(productId);
@@ -130,6 +104,7 @@ namespace Amazon.DAL
             var lst = db.Products.OrderByDescending(t => t.createddate).Take(5).ToList();
             return lst;
         }
+       
 
     }
 }
