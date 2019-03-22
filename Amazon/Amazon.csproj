@@ -84,11 +84,11 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
@@ -162,11 +162,15 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\CustomersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FootersController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MenusController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Admin\Controllers\Ref_Product_TypesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SlidesController.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
+    <Compile Include="Areas\Admin\Models\ProductTypeModel.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -2495,6 +2499,18 @@
     <Content Include="Areas\Admin\Views\Products\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Login\Login.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Footers\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Footers\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Footers\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Footers\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Menus\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Menus\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Menus\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Menus\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Slides\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Slides\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Slides\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Slides\Delete.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

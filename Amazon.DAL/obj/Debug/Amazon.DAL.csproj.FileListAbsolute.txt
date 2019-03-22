@@ -255,3 +255,7 @@ D:\Github\GitTest\amazoncode\Amazon.DAL\obj\Debug\Amazon.DAL.csproj.CoreCompileI
 D:\Github\GitTest\amazoncode\Amazon.DAL\obj\Debug\Amazon.DAL.csproj.CopyComplete
 D:\Github\GitTest\amazoncode\Amazon.DAL\obj\Debug\Amazon.DAL.dll
 D:\Github\GitTest\amazoncode\Amazon.DAL\obj\Debug\Amazon.DAL.pdb
+D:\Github\GitTest\amazoncode\Amazon.DAL\bin\Debug\System.Web.Http.dll
+D:\Github\GitTest\amazoncode\Amazon.DAL\bin\Debug\System.Web.Http.WebHost.dll
+D:\Github\GitTest\amazoncode\Amazon.DAL\bin\Debug\System.Web.Http.xml
+D:\Github\GitTest\amazoncode\Amazon.DAL\bin\Debug\System.Web.Http.WebHost.xml

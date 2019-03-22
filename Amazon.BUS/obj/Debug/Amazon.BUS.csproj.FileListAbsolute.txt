@@ -291,3 +291,7 @@ D:\Github\GitTest\amazoncode\Amazon.BUS\obj\Debug\Amazon.BUS.csproj.CoreCompileI
 D:\Github\GitTest\amazoncode\Amazon.BUS\obj\Debug\Amazon.BUS.csproj.CopyComplete
 D:\Github\GitTest\amazoncode\Amazon.BUS\obj\Debug\Amazon.BUS.dll
 D:\Github\GitTest\amazoncode\Amazon.BUS\obj\Debug\Amazon.BUS.pdb
+D:\Github\GitTest\amazoncode\Amazon.BUS\bin\Debug\System.Web.Http.dll
+D:\Github\GitTest\amazoncode\Amazon.BUS\bin\Debug\System.Web.Http.WebHost.dll
+D:\Github\GitTest\amazoncode\Amazon.BUS\bin\Debug\System.Web.Http.xml
+D:\Github\GitTest\amazoncode\Amazon.BUS\bin\Debug\System.Web.Http.WebHost.xml

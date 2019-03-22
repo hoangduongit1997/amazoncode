@@ -17,6 +17,8 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
+using AmazonWebAPI.Services;
+using AmazonWebAPI.Controllers;
 
 namespace Amazon.Areas.Admin.Controllers
 {
@@ -24,10 +26,7 @@ namespace Amazon.Areas.Admin.Controllers
     {
         //
         HttpClient client;
-        //The URL of the WEB API Service
         string url = "http://localhost:62993/api/product";
-
-
         public ProductsController()
         {
             client = new HttpClient();
@@ -35,30 +34,8 @@ namespace Amazon.Areas.Admin.Controllers
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
-        public async Task<ActionResult> Index()
-        {
-            HttpResponseMessage responseMessage = await client.GetAsync(url + "/product/GetAll");
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                var responseData = responseMessage.Content.ReadAsStringAsync().Result;
-                var settings = new JsonSerializerSettings
-                {
-                    NullValueHandling = NullValueHandling.Ignore,
-                    MissingMemberHandling = MissingMemberHandling.Ignore
-                };
-                var product = JsonConvert.DeserializeObject<List<ProductDTO>>(responseData, settings);
-
-                // return View(product);
-                //var lst = new ProductBUS().ListNewProduct();
-                //ViewBag.NewProduct = product;
-                //var topdeal = new ProductBUS().TopDealProduct();
-                //ViewBag.TopDeal = product;
-                //ViewBag.SessionUser = Session["Customer"];
-                return View(product);
-            }
-            return View();
-        }
-        //public async Task<ActionResult> Index(string sortOrder, string currentFilter, string searchString, int? page)
+        ProductTypesController type = new ProductTypesController();
+        //public async Task<ActionResult> Index()
         //{
         //    HttpResponseMessage responseMessage = await client.GetAsync(url + "/GetAll");
         //    if (responseMessage.IsSuccessStatusCode)
@@ -70,60 +47,54 @@ namespace Amazon.Areas.Admin.Controllers
         //            MissingMemberHandling = MissingMemberHandling.Ignore
         //        };
         //        var product = JsonConvert.DeserializeObject<List<ProductDTO>>(responseData, settings);
-        //        if (searchString != null)
-        //        {
-        //            page = 1;
-        //        }
-        //        else
-        //        {
-        //            searchString = currentFilter;
-        //        }
-        //        ViewBag.currentFilter = searchString;
-        //        ///var product = from pr in db.Products select pr;
-        //        if (!String.IsNullOrEmpty(searchString))
-        //        {
-        //            product = product.Where(t => t.product_name.Contains(searchString));
-        //        }
-        //        product = product.OrderBy(s => s.product_id);
-        //        int pageSize = 5;
-        //        int pageNum = (page ?? 1);
+
         //        return View(product);
         //    }
         //    return View();
         //}
+        public async Task<ActionResult> Index(string sortOrder, string currentFilter, string searchString, int? page)
+        {
+            HttpResponseMessage responseMessage = await client.GetAsync(url + "/GetAll");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var responseData = responseMessage.Content.ReadAsStringAsync().Result;
+                var settings = new JsonSerializerSettings
+                {
+                    NullValueHandling = NullValueHandling.Ignore,
+                    MissingMemberHandling = MissingMemberHandling.Ignore
+                };
+                var product = JsonConvert.DeserializeObject<List<ProductDTO>>(responseData, settings);
+                if (searchString != null)
+                {
+                    page = 1;
+                }
+                else
+                {
+                    searchString = currentFilter;
+                }
+                ViewBag.currentFilter = searchString;
+                //var product = from pr in db.Products select pr;
+                //if (!String.IsNullOrEmpty(searchString))
+                //{
+                //    product = product.Contains(searchString);
+                //}
+                //product = product.OrderBy(s => s.product_id);
+                int pageSize = 5;
+                int pageNum = (page ?? 1);
+                return View(product.ToPagedList(pageNum, pageSize));
+                //return View(product);
+            }
+            return View();
+        }
         //
         //private ShopDbContext db = new ShopDbContext();
-
-
-        //public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
-        //{
-
-        //    if (searchString != null)
-        //    {
-        //        page = 1;
-        //    }
-        //    else
-        //    {
-        //        searchString = currentFilter;
-        //    }
-        //    ViewBag.currentFilter = searchString;
-        //    var product = from pr in db.Products select pr;
-        //    if (!String.IsNullOrEmpty(searchString))
-        //    {
-        //        product = product.Where(t => t.product_name.Contains(searchString));
-        //    }
-        //    product = product.OrderBy(s => s.product_id);
-        //    int pageSize = 5;
-        //    int pageNum = (page ?? 1);
-        //    return View(product.ToPagedList(pageNum, pageSize));
-        //}
-        ////CREATE
-        //[HttpGet]
-        //public ActionResult Create()
-        //{
-        //    ViewBag.product_type_code = new SelectList(db.Ref_Product_Types, "product_type_code", "product_type_description");
-        //    return View();
-        //}
+        //CREATE
+        [HttpGet]
+        public ActionResult Create()
+        {
+            ViewBag.product_type_code = new SelectList(type.Get(), "Ref_Product_TypesDTO.product_type_code", "Ref_Product_TypesDTO.product_type_description");
+            return View();
+        }
 
         //[HttpPost]
         //[ValidateAntiForgeryToken]

@@ -1,64 +1,73 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
-//using Amazon.DAL;
-//using Amazon.EntityFramework;
-//namespace Amazon.BUS
-//{
-//   public class CustomerBUS
-//    {
-//        CustomerDAL dal;
-//        public CustomerBUS()
-//        {
-//            Dal = new CustomerDAL();
-//        }
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Amazon.DAL;
+using Amazon.EntityFramework;
+using Amazon.DTO;
+using AutoMapper;
 
-//        public CustomerDAL Dal { get => dal; set => dal = value; }
-//        public int Login(string username, string password)
-//        {
-//            return Dal.Login(username, password);
-//        }
+namespace Amazon.BUS
+{
+    public class CustomerBUS
+    {
+        CustomerDAL dal;
+        public CustomerBUS()
+        {
+            Dal = new CustomerDAL();
+        }
 
-//        public int insert(Customer cus)
-//        {
-//            return Dal.insert(cus);
-//        }
-//        public bool checkEmail(string email)
-//        {
-//            return Dal.checkEmail(email);
-//        }
-//        public string IdRandom()
-//        {
-//            Random r = new Random();
-//            int id = r.Next(100, 999);
-//            return DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()+id.ToString();
-//        }
+        public CustomerDAL Dal { get => dal; set => dal = value; }
+        public int Login(string username, string password)
+        {
+            return Dal.Login(username, password);
+        }
 
-//        public bool Update(Customer cus)
-//        {
-//            return Dal.Update(cus);
-//        }
+        public int insert(CustomerDTO cus)
+        {
+            var config = new MapperConfiguration(cfg => {
 
-//        public bool Delete(string id)
-//        {
-//            return Dal.Delete(id);
-//        }
+                cfg.CreateMap<CustomerDTO, Customer>();
 
-//        public Customer ViewDetail(string id)
-//        {
-//            return Dal.ViewDetail(id);
-//        }
+            });
+            IMapper iMapper = config.CreateMapper();
+            var cusModel = iMapper.Map<CustomerDTO, Customer>(cus);
+            return Dal.insert(cusModel);
+        }
+        public bool checkEmail(string email)
+        {
+            return Dal.checkEmail(email);
+        }
+        public string IdRandom()
+        {
+            Random r = new Random();
+            int id = r.Next(100, 999);
+            return DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + id.ToString();
+        }
 
-//        public IEnumerable<Customer> ListAll(int page, int pageSize)
-//        {
-//            return Dal.ListAllPaging(page, pageSize);
-//        }
-//        public Customer Find(string id)
-//        {
-//            return Dal.Find(id);
-//        }
-//    }
-//}
+        public bool Update(Customer cus)
+        {
+            return Dal.Update(cus);
+        }
 
+        public bool Delete(string id)
+        {
+            return Dal.Delete(id);
+        }
+
+        public Customer ViewDetail(string id)
+        {
+            return Dal.ViewDetail(id);
+        }
+
+        public IEnumerable<Customer> ListAll(int page, int pageSize)
+        {
+            return Dal.ListAllPaging(page, pageSize);
+        }
+        public Customer Find(string id)
+        {
+            return Dal.Find(id);
+        }
+    }
+}

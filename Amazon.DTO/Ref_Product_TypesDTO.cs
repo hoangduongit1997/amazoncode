@@ -12,9 +12,7 @@ namespace Amazon.DTO
         //{
         //    Products = new HashSet<ProductDTO>();
         //}
-
         public string product_type_code { get; set; }
-
         public string product_type_description { get; set; }
 
         //public virtual ICollection<ProductDTO> Products { get; set; }

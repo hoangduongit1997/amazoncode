@@ -16,10 +16,35 @@ namespace AmazonWebAPI.Services
         }
 
         public SlideBUS Bus { get => bus; set => bus = value; }
-
+        //danh sách slide
         public List<SlideDTO> ListSlide()
         {
             return Bus.List_Sliders();
+        }
+        //lấy slide
+        public SlideDTO Detail(int id)
+        {
+            return bus.ViewDetail(id);
+        }
+        //thêm slide
+        public bool Insert(SlideDTO item)
+        {
+            return bus.Insert(item);
+        }
+        //sửa slide
+        public bool Update(SlideDTO slide)
+        {
+            return bus.Update(slide);
+        }
+        //xóa slide
+        public bool Delete(SlideDTO slide)
+        {
+            return bus.Delete(slide);
+        }
+        //mã tự động
+        public int autoKey()
+        {
+            return bus.autoKey();
         }
     }
 }

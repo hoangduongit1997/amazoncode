@@ -18,6 +18,7 @@ namespace Amazon.DAL
         {
             Db = new ShopDbContext();
         }
+        //danh sách loại sản phẩm
         public List<Ref_Product_Types> GetAll()
         {
             return db.Ref_Product_Types.Select(t => t).ToList();
@@ -27,58 +28,68 @@ namespace Amazon.DAL
             return Db.Ref_Product_Types.Find(id);
         }
 
+        //thêm loại sản phẩm
         public bool Insert(Ref_Product_Types productType)
         {
             Db.Ref_Product_Types.Add(productType);
             Db.SaveChanges();
             return true;
         }
-        //List<Ref_Product_Types> types = new List<Ref_Product_Types>();
-        //public bool Update(Ref_Product_Types productType)
-        //{
-        //    if (productType == null)
-        //    {
-        //        throw new ArgumentNullException("item");
-        //    }
-        //    int index = types.FindIndex(p => p.product_type_code == productType.product_type_code);
-        //    if (index == -1)
-        //    {
-        //        return false;
-        //    }
-        //    types.RemoveAt(index);
-        //    types.Add(productType);
-        //    return true;
-        //}
+        //mã tự động
+        public string autoKey()
+        {
+            int key = 0;
+            string num = "";
+            List<Ref_Product_Types> lst = Db.Ref_Product_Types.Select(t => t).ToList<Ref_Product_Types>();
+            if (Db.Ref_Product_Types.Count() != 0)
+            {
+                Ref_Product_Types hv = lst[Db.Ref_Product_Types.Count() - 1];
+                string[] ma = hv.product_type_code.Trim().Split('E');
+                key = (int.Parse(ma[1]) + 1);
+
+            }
+            if (key < 10)
+                num = "00";
+            else
+                num = "0";
+            return "PTYPE"+num+key;
+
+        }
+        //sửa loại sản phẩm
         public bool Update(Ref_Product_Types productType)
         {
+            bool status;
             try
             {
                 var type = Db.Ref_Product_Types.Find(productType.product_type_code);
-                type.product_type_code = productType.product_type_code;
                 type.product_type_description = productType.product_type_description;
                 Db.SaveChanges();
-                return true;
+                status = true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return false;
+                status = false;
             }
+            return status;
+        }
+        //xóa loại sản phẩm
+        public bool Delete(Ref_Product_Types productType)
+        {
+            bool status;
+            try
+            {
+                var type = Db.Ref_Product_Types.Find(productType.product_type_code);
+                Db.Ref_Product_Types.Remove(type);
+                Db.SaveChanges();
+                status = true;
+            }
+            catch (Exception)
+            {
+                status = false;
+            }
+            return status;
         }
 
-        //public bool Delete(string id)
-        //{
-        //    try
-        //    {
-        //        var productType = Db.Ref_Product_Types.Find(id);
-        //        Db.Ref_Product_Types.Remove(productType);
-        //        Db.SaveChanges();
-        //        return true;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return false;
-        //    }
-        //}
         //public List<Ref_Product_Types> ListAllProductType()
         //{
         //    return Db.Ref_Product_Types.OrderBy(t => t.product_type_description).ToList();

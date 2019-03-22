@@ -59,6 +59,10 @@ namespace Amazon.BUS
             var typeModel = iMapper.Map<Ref_Product_TypesDTO, Ref_Product_Types>(productType);
             return Da.Insert(typeModel);
         }
+        public string autoKey()
+        {
+            return Da.autoKey();
+        }
         public bool Update(Ref_Product_TypesDTO productType)
         {
             var config = new MapperConfiguration(cfg => {
@@ -71,10 +75,17 @@ namespace Amazon.BUS
             return Da.Update(typeModel);
         }
 
-        //public bool Delete(string id)
-        //{
-        //    return Da.Delete(id);
-        //}
+        public bool Delete(Ref_Product_TypesDTO productType)
+        {
+            var config = new MapperConfiguration(cfg => {
+
+                cfg.CreateMap<Ref_Product_TypesDTO, Ref_Product_Types>();
+
+            });
+            IMapper iMapper = config.CreateMapper();
+            var typeModel = iMapper.Map<Ref_Product_TypesDTO, Ref_Product_Types>(productType);
+            return Da.Delete(typeModel);
+        }
 
         //public IEnumerable<Ref_Product_Types> ListAll(int page, int pageSize)
         //{

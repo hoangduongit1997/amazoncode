@@ -31,7 +31,7 @@ namespace AmazonWebAPI.Controllers
         //    return producttypeRepository.GetOfType(id);
         //}
         [HttpGet]
-        [Route("api/ProductTypes/ProductTypeID={id:int}")]
+        [Route("api/ProductTypes/ProductTypeID={id}")]
         public Ref_Product_TypesDTO Detail(string id)
         {
             return producttypeRepository.Detail(id);
@@ -41,19 +41,27 @@ namespace AmazonWebAPI.Controllers
         // Not the final implementation!
         public bool PostProduct(Ref_Product_TypesDTO item)
         {
+            //item.product_type_code = producttypeRepository.autoKey();
             return producttypeRepository.Insert(item);
         }
         [HttpPut]
         [Route("api/ProductTypes/ProductTypeID={id}")]
         // Not the final implementation!
-        public bool PutProductType(string id, Ref_Product_TypesDTO item)
+        public bool PutProductType(Ref_Product_TypesDTO item)
         {
-            item.product_type_code = id;
-            if (!producttypeRepository.Update(item))
-            {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
-            }
-            return true;
+            //item.product_type_code = id;
+            return producttypeRepository.Update(item);
+        }
+        [HttpDelete]
+        [Route("api/ProductTypes/ProductTypeID={id}")]
+        public bool DeleteProductType(Ref_Product_TypesDTO item)
+        {
+            return producttypeRepository.Delete(item);
+        }
+
+        public string autoKey()
+        {
+            return producttypeRepository.autoKey();
         }
     }
 }
