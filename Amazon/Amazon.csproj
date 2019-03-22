@@ -2398,6 +2398,7 @@
     <Content Include="Content\JS\plugins\ckfinder\_samples\standalone_v1.html" />
     <Content Include="Content\JS\productsController.js" />
     <Content Include="Content\JS\sb-admin-2.js" />
+    <Content Include="Content\JS\slide.js" />
     <Content Include="Content\JS\TopButton_2.js" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\vendor\fontawesome-free\css\all.css" />

@@ -28,6 +28,22 @@ namespace Amazon.BUS
             }
             return null;
         }
+        public List<ProductDTO> GetByType(string id)
+        {
+            var lst = dal.GetByType(id);
+            if (lst != null)
+            {
+                var config = new MapperConfiguration(cfg => {
+
+                    cfg.CreateMap<Product, ProductDTO>();
+
+                });
+                IMapper iMapper = config.CreateMapper();
+                var productModel = iMapper.Map<List<Product>, List<ProductDTO>>(lst);
+                return productModel;
+            }
+            return null;
+        }
         public ProductDTO ViewDetail(string id)
         {
             var product = dal.ViewDetail(id);

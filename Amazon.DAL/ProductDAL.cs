@@ -18,6 +18,10 @@ namespace Amazon.DAL
         {
             return db.Products.Select(t => t).ToList();
         }
+        public List<Product> GetByType(string id)
+        {
+            return db.Products.Where(t => t.product_type_code == id).ToList();
+        }
         public Product ViewDetail(string id)
         {
             var product = db.Products.Find(id);          

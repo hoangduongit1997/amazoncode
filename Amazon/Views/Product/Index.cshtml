@@ -2,49 +2,70 @@
 @{
     ViewBag.Title = "Quản lý sản phẩm";
     Layout = "~/Views/Shared/Layout.cshtml";
-   // var ListProductType = (List<Amazon.EntityFramework.Ref_Product_Types>)ViewBag.ProductType;
+    var ListProductType = (List<Amazon.DTO.Ref_Product_TypesDTO>)ViewBag.ProductType;
 }
-
-<div style="height:100%" class="contain">
-
-
-    @*<div style="float:left;height:100vh; background-color:darkgray" class="col left">
-        <h2>Featured Category</h2>
-        <ul>
-            @foreach (var item in ListProductType)
-            {
-                <li><a href="@Url.Action("Index","Product",new {typeID=item.product_type_code})">@item.product_type_description</a></li>
-
-            }
-
-        </ul>
-    </div>*@
-    <div class="row">
-        
-        @foreach (var item in Model)
-        {
-            <div class="col-md-3 col-sm-6">
-                <div class="product-grid">
-                    <div class="product-image">
-
-                        <a href="@Url.Action("Show","Product",new {id=item.product_id })">
-                            <img class="pic-1" src="@item.product_imge">
-                        </a>
+<style>
+    #text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: small;
+    }
+</style>
+<div class="row">
+    <div style="height:100%" class="contain">
+        @*<div id="left-sidebar" style="float:left;height:100vh; background-color:darkgray" class="col-md-3">*@
+        <div class="panel-group col-md-3" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title">Featured Category</h2>
+                    <div class="panel-body">
+                        <table class="table table-striped">
+                            @foreach (var item in ListProductType)
+                            {
+                                //var url = "/ProductTypes-"+item.product_type_code;
+                                <tr>
+                                    <td>
+                                        @*<a href="@url">@item.product_type_description</a>*@
+                                        <a href="@Url.Action("Index","Product",new {typeID=item.product_type_code})">@item.product_type_description</a>
+                                    </td>
+                                </tr>
+                            }
+                        </table>
                     </div>
-
-                    <div class="product-content">
-                        <h3 class="title"><a href="#">@item.product_name</a></h3>
-                        <div class="price">
-
-                            <span>$@item.product_price</span>
-                        </div>
-
-                    </div>
-
                 </div>
             </div>
+        </div>
+        <div class="col-md-9">
+            <div id="content" class="row">
+                <!---->
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-3 col-sm-6">
+                        <div class="card text-center jumbotron">
+                            <div class="card-img-top">
+                                <a href="@Url.Action("Show","Product",new {id=item.product_id, name=item.product_name })">
+                                    <img width="100" height="150" class="pic-1" src="@item.product_imge">
+                                </a>
+                            </div>
 
-        }
-        <hr />
+                            <div class="card-body">
+                                <h3 class="card-title"><a href="#">@item.product_name</a></h3>
+                                <div class="card-text">
+                                    <p title="@item.product_description" id="text">@item.product_description</p>
+                                    <span>$@item.product_price</span>
+                                </div>
+                                <a href="@Url.Action("Show","Product",new {id=item.product_id })" class="btn btn-primary">Details</a>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--end of for-->
+                }
+                <hr />
+            </div>
+        </div>
     </div>
 </div>
+

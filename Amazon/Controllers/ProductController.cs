@@ -12,6 +12,8 @@ using Newtonsoft.Json;
 using System.Net.Sockets;
 using System.Runtime.Serialization.Json;
 using Amazon.DTO;
+using AmazonWebAPI.Controllers;
+
 namespace Amazon.Controllers
 {
     public class ProductController : Controller
@@ -28,57 +30,60 @@ namespace Amazon.Controllers
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
-        public async Task<ActionResult> Index()
-    {
-        HttpResponseMessage responseMessage = await client.GetAsync(url + "/GetAll");
-        if (responseMessage.IsSuccessStatusCode)
-        {
-            var responseData = responseMessage.Content.ReadAsStringAsync().Result;
-            var settings = new JsonSerializerSettings
-            {
-                NullValueHandling = NullValueHandling.Ignore,
-                MissingMemberHandling = MissingMemberHandling.Ignore
-            };
-            var product = JsonConvert.DeserializeObject<List<ProductDTO>>(responseData, settings);
+        ProductTypesController ctrl = new ProductTypesController();
+        //public async Task<ActionResult> Index()
+        //{
+        //HttpResponseMessage responseMessage = await client.GetAsync(url + "/GetAll");
+        //if (responseMessage.IsSuccessStatusCode)
+        //{
+        //    var responseData = responseMessage.Content.ReadAsStringAsync().Result;
+        //    var settings = new JsonSerializerSettings
+        //    {
+        //        NullValueHandling = NullValueHandling.Ignore,
+        //        MissingMemberHandling = MissingMemberHandling.Ignore
+        //    };
+        //    var product = JsonConvert.DeserializeObject<List<ProductDTO>>(responseData, settings);
 
-            // return View(product);
-            //var lst = new ProductBUS().ListNewProduct();
-            ViewBag.NewProduct = product;
-            //var topdeal = new ProductBUS().TopDealProduct();
-            ViewBag.TopDeal = product;
+        //    // return View(product);
+        //    //var lst = new ProductBUS().ListNewProduct();
+        //    ViewBag.NewProduct = product;
+        //    //var topdeal = new ProductBUS().TopDealProduct();
+        //    ViewBag.TopDeal = product;
+        //        //ViewBag.SessionUser = Session["Customer"];
+        //        return View(product);
+        //    }
+        //    return View();
+        //}
+        [Route("typeID={typeid?}")]
+        public async Task<ActionResult> Index(string typeid)
+        {
+            HttpResponseMessage responseMessage = await client.GetAsync(url + "/ProductType="+typeid);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var responseData = responseMessage.Content.ReadAsStringAsync().Result;
+                var settings = new JsonSerializerSettings
+                {
+                    NullValueHandling = NullValueHandling.Ignore,
+                    MissingMemberHandling = MissingMemberHandling.Ignore
+                };
+                var product = JsonConvert.DeserializeObject<List<ProductDTO>>(responseData, settings);
+
+                // return View(product);
+                //var lst = new ProductBUS().ListNewProduct();
+                ViewBag.ProductType = ctrl.Get();
+                ViewBag.NewProduct = product;
+                //var topdeal = new ProductBUS().TopDealProduct();
+                ViewBag.TopDeal = product;
                 //ViewBag.SessionUser = Session["Customer"];
                 return View(product);
             }
-    return View();
-}
-        //        public async Task<ActionResult> Index(string typeID)
-        //        {
-
-        //            HttpResponseMessage responseMessage = await client.GetAsync(url+ "/Category="+typeID);
-        //            if (responseMessage.IsSuccessStatusCode)
-        //            {
-        //                var responseData = responseMessage.Content.ReadAsStringAsync().Result;
-        //                var settings = new JsonSerializerSettings
-        //                {
-        //                    NullValueHandling = NullValueHandling.Ignore,
-        //                    MissingMemberHandling = MissingMemberHandling.Ignore
-        //                };
-        //                var product = JsonConvert.DeserializeObject<List<Product>>(responseData, settings);
-        //                ViewBag.ProductType = new ProductTypeBUS().ListAllProductType();
-        //                return View(product);
-        //            }
-        //            return View("Error");
-        //        }
-        //        // GET: ProductDetails
-        //        //public ActionResult Index(string typeID)
-        //        //{
-        //        //    var listProduct = new ProductBUS().ListProductOfType(typeID);
-        //        //    ViewBag.ProductType = new ProductTypeBUS().ListAllProductType();
-        //        //    return View(listProduct);
-        //        //}
-        public async Task<ActionResult> Show(string id)
+            return View();
+        }
+        [Route("{name?}p{id?}")]
+        //[Route("{productId}/{productTitle}")]
+        public async Task<ActionResult> Show(string id, string name)
         {
-            HttpResponseMessage responseMessage = await client.GetAsync(url + "/ProductID="+id);
+            HttpResponseMessage responseMessage = await client.GetAsync(url + "/ProductID="+ id);
             if (responseMessage.IsSuccessStatusCode)
             {
                 var responseData = responseMessage.Content.ReadAsStringAsync().Result;
@@ -88,13 +93,10 @@ namespace Amazon.Controllers
                     MissingMemberHandling = MissingMemberHandling.Ignore
                 };
                 var product = JsonConvert.DeserializeObject<ProductDTO>(responseData, settings);
+                //name = product.product_name;
                 return View(product);
             }
             return View("Error");
-
-
-
-
         }
         //        public ActionResult Detail(string id)
         //        {
