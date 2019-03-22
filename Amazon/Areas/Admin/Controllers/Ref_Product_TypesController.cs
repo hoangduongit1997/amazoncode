@@ -31,7 +31,7 @@ namespace Amazon.Areas.Admin.Controllers
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
-        [Route("ProductTypes")]
+        //index
         public async Task<ActionResult> Index()
         {
             HttpResponseMessage responseMessage = await client.GetAsync(url + "/productTypes/GetAll");
@@ -48,6 +48,7 @@ namespace Amazon.Areas.Admin.Controllers
             }
             return View();
         }
+        //get view create
         [HttpGet]
         public ActionResult Create()
         {
@@ -84,18 +85,6 @@ namespace Amazon.Areas.Admin.Controllers
                             NullValueHandling = NullValueHandling.Ignore,
                             MissingMemberHandling = MissingMemberHandling.Ignore
                         };
-                        //var resurt = JsonConvert.DeserializeObject<int>(responseData);
-                        //if (resurt == 1)
-                        //{
-                        //    return RedirectToAction("Index", "Home");
-
-                        //}
-                        //else if (resurt == 0)
-                        //{
-                        //    if (model.description != null)
-                        //        ModelState.AddModelError("DescriptionError", "Do not empty!!");
-
-                        //}
                     }
                     return RedirectToAction("Index");
                 }
@@ -106,6 +95,7 @@ namespace Amazon.Areas.Admin.Controllers
             }
             return View(model);
         }
+        //get view edit
         [HttpGet]
         public ActionResult Edit(string id)
         {
@@ -125,14 +115,13 @@ namespace Amazon.Areas.Admin.Controllers
             }
             return View();
         }
-        /*edit*/
+        //update value
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "product_type_code,product_type_description")] Ref_Product_TypesDTO ref_Product_Types)
         {
             if (ModelState.IsValid)
             {
-                //client.BaseAddress = new Uri(apiBaseAddress);
                 var response = await client.PutAsJsonAsync("api/ProductTypes/ProductTypeID="+ref_Product_Types.product_type_code, ref_Product_Types);
                 if (response.IsSuccessStatusCode)
                 {
@@ -146,8 +135,7 @@ namespace Amazon.Areas.Admin.Controllers
             }
             return View(ref_Product_Types);
         }
-        //
-        // GET: Admin/Ref_Product_Types/Delete/5
+        //delete
         public ActionResult Delete(string id)
         {
             var responseMessage = client.GetAsync(url + "/ProductTypes/ProductTypeID=" + id);
@@ -166,7 +154,7 @@ namespace Amazon.Areas.Admin.Controllers
             }
             return View();
         }
-
+        //confirm
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)

@@ -40,11 +40,12 @@ namespace Amazon.Controllers
                 return View();
             }
             return View("Error");
-        }        
+        }
         [ChildActionOnly]
-        public async Task<PartialViewResult> MainMenu()
+        public PartialViewResult MainMenu()
         {
-            HttpResponseMessage responseMessage = await client.GetAsync(url + "/Home/Menu");
+            HttpResponseMessage responseMessage = Task.Run(() => client.GetAsync(url + "/Home/Menu")).Result;
+            //HttpResponseMessage responseMessage = await client.GetAsync(url + "/Home/Menu");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var responseData = responseMessage.Content.ReadAsStringAsync().Result;
@@ -56,13 +57,13 @@ namespace Amazon.Controllers
                 var list_menu = JsonConvert.DeserializeObject<List<MenuDTO>>(responseData, settings);
                 return PartialView(list_menu);
             }
-           
+
             return PartialView();
         }
         [ChildActionOnly]
-        public async  Task<PartialViewResult> Slider()
+        public PartialViewResult Slider()
         {
-            HttpResponseMessage responseMessage = await client.GetAsync(url + "/Home/Slide");
+            HttpResponseMessage responseMessage = Task.Run(() => client.GetAsync(url + "/Home/Slide")).Result;
             if (responseMessage.IsSuccessStatusCode)
             {
                 var responseData = responseMessage.Content.ReadAsStringAsync().Result;
@@ -71,7 +72,7 @@ namespace Amazon.Controllers
                     NullValueHandling = NullValueHandling.Ignore,
                     MissingMemberHandling = MissingMemberHandling.Ignore
                 };
-                var list_slide =JsonConvert.DeserializeObject<List<SlideDTO>>(responseData, settings);
+                var list_slide = JsonConvert.DeserializeObject<List<SlideDTO>>(responseData, settings);
                 return PartialView(list_slide);
             }
             return PartialView();

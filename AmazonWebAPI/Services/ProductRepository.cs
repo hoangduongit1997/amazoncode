@@ -13,11 +13,11 @@ namespace AmazonWebAPI.Services
 
         //public SHOPEntities Shop { get => shop; set => shop = value; }
         ProductBUS bus = new ProductBUS();
-       
-        //public List<ProductDTO> GetOfType(string ID)
-        //{
-        //    return Shop.Products.Where(t => t.product_type_code == ID).ToList<ProductDTO>();
-        //}
+
+        public List<ProductDTO> GetOfType(string ID)
+        {
+            return bus.GetByType(ID);
+        }
         public List<ProductDTO> GetAllProduct()
         {
             return bus.GetAll();
