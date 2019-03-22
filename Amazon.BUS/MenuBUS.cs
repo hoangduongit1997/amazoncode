@@ -17,7 +17,7 @@ namespace Amazon.BUS
             dal = new MenuDAL();
         }
 
-        public MenuDAL Dal { get => dal; set => dal = value; }
+        public MenuDAL Da { get => dal; set => dal = value; }
 
         public List<MenuDTO> ListMenu()
         {
@@ -34,6 +34,59 @@ namespace Amazon.BUS
                 return menuModel;
             }
             return null;
+        }
+        //Lấy Menu
+        public MenuDTO ViewDetail(int id)
+        {
+            var type = dal.ViewDetail(id);
+            if (type != null)
+            {
+                var config = new MapperConfiguration(cfg => {
+                    cfg.CreateMap<Menu, MenuDTO>();
+                });
+                IMapper iMapper = config.CreateMapper();
+                var model = iMapper.Map<Menu, MenuDTO>(type);
+                return model;
+            }
+            return null;
+        }
+        //thêm Menu
+        public bool Insert(MenuDTO Menu)
+        {
+            var config = new MapperConfiguration(cfg => {
+                cfg.CreateMap<MenuDTO, Menu>();
+            });
+            IMapper iMapper = config.CreateMapper();
+            var model = iMapper.Map<MenuDTO, Menu>(Menu);
+            return Da.Insert(model);
+        }
+        public int autoKey()
+        {
+            return Da.autoKey();
+        }
+        //sủa Menu
+        public bool Update(MenuDTO Menu)
+        {
+            var config = new MapperConfiguration(cfg => {
+
+                cfg.CreateMap<MenuDTO, Menu>();
+
+            });
+            IMapper iMapper = config.CreateMapper();
+            var model = iMapper.Map<MenuDTO, Menu>(Menu);
+            return Da.Update(model);
+        }
+        //xóa Menu
+        public bool Delete(MenuDTO Menu)
+        {
+            var config = new MapperConfiguration(cfg => {
+
+                cfg.CreateMap<MenuDTO, Menu>();
+
+            });
+            IMapper iMapper = config.CreateMapper();
+            var model = iMapper.Map<MenuDTO, Menu>(Menu);
+            return Da.Delete(model);
         }
 
     }

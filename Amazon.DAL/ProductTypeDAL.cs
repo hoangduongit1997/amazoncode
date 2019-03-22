@@ -18,56 +18,85 @@ namespace Amazon.DAL
         {
             Db = new ShopDbContext();
         }
-
+        //danh sách loại sản phẩm
+        public List<Ref_Product_Types> GetAll()
+        {
+            return db.Ref_Product_Types.Select(t => t).ToList();
+        }
         public Ref_Product_Types ViewDetail(string id)
         {
             return Db.Ref_Product_Types.Find(id);
         }
 
-        public string Insert(Ref_Product_Types productType)
+        //thêm loại sản phẩm
+        public bool Insert(Ref_Product_Types productType)
         {
             Db.Ref_Product_Types.Add(productType);
             Db.SaveChanges();
-            return productType.product_type_code;
+            return true;
         }
+        //mã tự động
+        public string autoKey()
+        {
+            int key = 0;
+            string num = "";
+            List<Ref_Product_Types> lst = Db.Ref_Product_Types.Select(t => t).ToList<Ref_Product_Types>();
+            if (Db.Ref_Product_Types.Count() != 0)
+            {
+                Ref_Product_Types hv = lst[Db.Ref_Product_Types.Count() - 1];
+                string[] ma = hv.product_type_code.Trim().Split('E');
+                key = (int.Parse(ma[1]) + 1);
 
+            }
+            if (key < 10)
+                num = "00";
+            else
+                num = "0";
+            return "PTYPE"+num+key;
+
+        }
+        //sửa loại sản phẩm
         public bool Update(Ref_Product_Types productType)
         {
+            bool status;
             try
             {
                 var type = Db.Ref_Product_Types.Find(productType.product_type_code);
-                type.product_type_code = productType.product_type_code;
                 type.product_type_description = productType.product_type_description;
                 Db.SaveChanges();
-                return true;
+                status = true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return false;
+                status = false;
             }
+            return status;
         }
-
-        public bool Delete(string id)
+        //xóa loại sản phẩm
+        public bool Delete(Ref_Product_Types productType)
         {
+            bool status;
             try
             {
-                var productType = Db.Ref_Product_Types.Find(id);
-                Db.Ref_Product_Types.Remove(productType);
+                var type = Db.Ref_Product_Types.Find(productType.product_type_code);
+                Db.Ref_Product_Types.Remove(type);
                 Db.SaveChanges();
-                return true;
+                status = true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return false;
+                status = false;
             }
+            return status;
         }
-        public List<Ref_Product_Types> ListAllProductType()
-        {
-            return Db.Ref_Product_Types.OrderBy(t => t.product_type_description).ToList();
-        }
-        public IEnumerable<Ref_Product_Types> ListAllPaging(int page, int pageSize)
-        {
-            return Db.Ref_Product_Types.OrderByDescending(x => x.product_type_description).ToPagedList(page, pageSize);
-        }
+
+        //public List<Ref_Product_Types> ListAllProductType()
+        //{
+        //    return Db.Ref_Product_Types.OrderBy(t => t.product_type_description).ToList();
+        //}
+        //public IEnumerable<Ref_Product_Types> ListAllPaging(int page, int pageSize)
+        //{
+        //    return Db.Ref_Product_Types.OrderByDescending(x => x.product_type_description).ToPagedList(page, pageSize);
+        //}
     }
 }

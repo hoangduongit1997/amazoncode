@@ -1,47 +1,99 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
-//using Amazon.DAL;
-//using Amazon.EntityFramework;
-//using PagedList;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Amazon.DAL;
+using Amazon.DTO;
+using Amazon.EntityFramework;
+using AutoMapper;
+using PagedList;
 
-//namespace Amazon.BUS
-//{
-//    public class ProductTypeBUS
-//    {
-//        ProductTypeDAL da = new ProductTypeDAL();
+namespace Amazon.BUS
+{
+    public class ProductTypeBUS
+    {
+        ProductTypeDAL dal = new ProductTypeDAL();
+        public List<Ref_Product_TypesDTO> GetAll()
+        {
+            var lst = dal.GetAll();
+            if (lst != null)
+            {
+                var config = new MapperConfiguration(cfg => {
 
-//        public ProductTypeDAL Da { get => da; set => da = value; }
+                    cfg.CreateMap<Product, Ref_Product_TypesDTO>();
 
-//        public Ref_Product_Types ViewDetail(string id)
-//        {
-//            return Da.ViewDetail(id);
-//        }
+                });
+                IMapper iMapper = config.CreateMapper();
+                var typeModel = iMapper.Map<List<Ref_Product_Types>, List<Ref_Product_TypesDTO>>(lst);
+                return typeModel;
+            }
+            return null;
+        }
+        public Ref_Product_TypesDTO ViewDetail(string id)
+        {
+            var type = dal.ViewDetail(id);
+            if (type != null)
+            {
+                var config = new MapperConfiguration(cfg => {
 
-//        public string Insert(Ref_Product_Types productType)
-//        {
-//            return Da.Insert(productType);
-//        }
+                    cfg.CreateMap<Product, Ref_Product_TypesDTO>();
 
-//        public bool Update(Ref_Product_Types productType)
-//        {
-//            return Da.Update(productType);
-//        }
+                });
+                IMapper iMapper = config.CreateMapper();
+                var productModel = iMapper.Map<Ref_Product_Types, Ref_Product_TypesDTO>(type);
+                return productModel;
+            }
+            return null;
+        }
+        public ProductTypeDAL Da { get => dal; set => dal = value; }
 
-//        public bool Delete(string id)
-//        {
-//            return Da.Delete(id);
-//        }
+        public bool Insert(Ref_Product_TypesDTO productType)
+        {
+            var config = new MapperConfiguration(cfg => {
 
-//        public IEnumerable<Ref_Product_Types> ListAll(int page, int pageSize)
-//        {
-//            return Da.ListAllPaging(page, pageSize);
-//        }
-//        public List<Ref_Product_Types> ListAllProductType()
-//        {
-//            return Da.ListAllProductType();
-//        }
-//    }
-//}
+                cfg.CreateMap<Ref_Product_TypesDTO, Ref_Product_Types>();
+
+            });
+            IMapper iMapper = config.CreateMapper();
+            var typeModel = iMapper.Map<Ref_Product_TypesDTO, Ref_Product_Types>(productType);
+            return Da.Insert(typeModel);
+        }
+        public string autoKey()
+        {
+            return Da.autoKey();
+        }
+        public bool Update(Ref_Product_TypesDTO productType)
+        {
+            var config = new MapperConfiguration(cfg => {
+
+                cfg.CreateMap<Ref_Product_TypesDTO, Ref_Product_Types>();
+
+            });
+            IMapper iMapper = config.CreateMapper();
+            var typeModel = iMapper.Map<Ref_Product_TypesDTO, Ref_Product_Types>(productType);
+            return Da.Update(typeModel);
+        }
+
+        public bool Delete(Ref_Product_TypesDTO productType)
+        {
+            var config = new MapperConfiguration(cfg => {
+
+                cfg.CreateMap<Ref_Product_TypesDTO, Ref_Product_Types>();
+
+            });
+            IMapper iMapper = config.CreateMapper();
+            var typeModel = iMapper.Map<Ref_Product_TypesDTO, Ref_Product_Types>(productType);
+            return Da.Delete(typeModel);
+        }
+
+        //public IEnumerable<Ref_Product_Types> ListAll(int page, int pageSize)
+        //{
+        //    return Da.ListAllPaging(page, pageSize);
+        //}
+        //public List<Ref_Product_Types> ListAllProductType()
+        //{
+        //    return Da.ListAllProductType();
+        //}
+    }
+}

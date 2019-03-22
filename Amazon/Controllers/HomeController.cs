@@ -37,8 +37,9 @@ namespace Amazon.Controllers
                 ViewBag.NewProduct = product;            
                 ViewBag.TopDeal = product;
                 //ViewBag.SessionUser = Session["Customer"];
+                return View();
             }
-            return View();
+            return View("Error");
         }        
         [ChildActionOnly]
         public async Task<PartialViewResult> MainMenu()
@@ -79,7 +80,6 @@ namespace Amazon.Controllers
         //{
         //    var footer = new FooterBUS().ListFooterBUS().ToList();
         //    return PartialView(footer);
-
         //}
     }
 }

@@ -33,6 +33,8 @@ namespace Amazon.DTO
 
         public float? promotionprice { get; set; }
 
-       // public virtual Ref_Product_Types Ref_Product_Types { get; set; }
+        //public List<Ref_Product_TypesDTO> Ref_Product_Types { get; set; }
+
+        // public virtual Ref_Product_Types Ref_Product_Types { get; set; }
     }
 }

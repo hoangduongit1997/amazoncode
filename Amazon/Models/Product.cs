@@ -9,7 +9,6 @@ namespace Amazon.Models
 {
     public class Product
     {
-      
         public string product_id;
         public string product_type_code;
         public string product_name;

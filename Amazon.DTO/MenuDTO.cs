@@ -8,10 +8,10 @@ namespace Amazon.DTO
 {
    public class MenuDTO
     {
-        private int? displayOrder;
-        private bool? status;
-        private int? menuTypeID;
-        private int? menuParentID;
+        //private int? displayOrder;
+        //private bool? status;
+        //private int? menuTypeID;
+        //private int? menuParentID;
 
         public int MenuID { get; set; }        
         public string Text { get; set; }
@@ -38,18 +38,18 @@ namespace Amazon.DTO
         //    this.Properti = Properti;
         //}
 
-        public MenuDTO(int menuID, string text, string link, int? displayOrder, string target, bool? status, int? menuTypeID, int? menuParentID, string icon, string properti)
-        {
-            MenuID = menuID;
-            Text = text;
-            Link = link;
-            this.displayOrder = displayOrder;
-            Target = target;
-            this.status = status;
-            this.menuTypeID = menuTypeID;
-            this.menuParentID = menuParentID;
-            Icon = icon;
-            Properti = properti;
-        }
+        //public MenuDTO(int menuID, string text, string link, int? displayOrder, string target, bool? status, int? menuTypeID, int? menuParentID, string icon, string properti)
+        //{
+        //    MenuID = menuID;
+        //    Text = text;
+        //    Link = link;
+        //    this.displayOrder = displayOrder;
+        //    Target = target;
+        //    this.status = status;
+        //    this.menuTypeID = menuTypeID;
+        //    this.menuParentID = menuParentID;
+        //    Icon = icon;
+        //    Properti = properti;
+        //}
     }
 }

@@ -19,7 +19,74 @@ namespace Amazon.DAL
       
         public List<Slider> ListSlider()
         {
-            return Db.Sliders.Where(t => t.Status == true).OrderBy(x=>x.DisplayOrder).ToList();
+            return Db.Sliders.Select(t => t).ToList();
+        }
+        public Slider ViewDetail(int id)
+        {
+            return Db.Sliders.Find(id);
+        }
+
+        //thêm loại sản phẩm
+        public bool Insert(Slider slide)
+        {
+            Db.Sliders.Add(slide);
+            Db.SaveChanges();
+            return true;
+        }
+        //mã tự động
+        public int autoKey()
+        {
+            int key = 0;
+            List<Slider> lst = Db.Sliders.Select(t => t).ToList<Slider>();
+            if (Db.Sliders.Count() != 0)
+            {
+                Slider hv = lst[Db.Sliders.Count() - 1];
+                key = (hv.ID + 1);
+            }
+            return key;
+        }
+        //sửa loại sản phẩm
+        public bool Update(Slider slide)
+        {
+            bool status;
+            try
+            {
+                var sld = Db.Sliders.Find(slide.ID);
+                sld.Image = slide.Image;
+                sld.DisplayOrder = slide.DisplayOrder;
+                sld.Link = slide.Link;
+                sld.Description = slide.Description;
+                sld.CreatedDate = DateTime.Now;
+                sld.CreatedBy = slide.CreatedBy;
+                sld.ModifiedDate = DateTime.Now;
+                sld.ModifiedBy = slide.ModifiedBy;
+                sld.Status = slide.Status;
+                sld.Priority = slide.Priority;
+                Db.SaveChanges();
+                status = true;
+            }
+            catch (Exception)
+            {
+                status = false;
+            }
+            return status;
+        }
+        //xóa loại sản phẩm
+        public bool Delete(Slider slide)
+        {
+            bool status;
+            try
+            {
+                var type = Db.Sliders.Find(slide.ID);
+                Db.Sliders.Remove(type);
+                Db.SaveChanges();
+                status = true;
+            }
+            catch (Exception)
+            {
+                status = false;
+            }
+            return status;
         }
     }
 }

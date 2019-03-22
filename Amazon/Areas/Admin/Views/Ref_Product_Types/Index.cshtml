@@ -1,27 +1,26 @@
-﻿@model IEnumerable<Amazon.EntityFramework.Ref_Product_Types>
-
-    @{
+﻿@model List<Amazon.DTO.Ref_Product_TypesDTO>
+@{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAD.cshtml";
-    }
+}
 
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="panel-heading">
-                <h3>Product Types List</h3>
-            </div>
-            <div class="panel-body">
-                <button class="btn btn-default">@Html.ActionLink("Create new", "Create")</button>
-                <hr />
-                <table class="table table-striped table-bordered table-hover">
-                    <tr>
-                        <th>Product Type Code</th>
-                        <th>Product Type Description</th>
-                        <th>Details</th>
-                    </tr>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel-heading">
+            <h3>Product Types List</h3>
+        </div>
+        <div class="panel-body">
+            <button class="btn btn-default">@Html.ActionLink("Create new", "Create")</button>
+            <hr />
+            <table class="table table-striped table-bordered table-hover">
+                <tr>
+                    <th>Product Type Code</th>
+                    <th>Product Type Description</th>
+                    <th>Details</th>
+                </tr>
 
-                    @foreach (var item in Model)
-                    {
+                @foreach (var item in Model)
+                {
                     <tr>
                         <td style="width:100px;text-align:center">
                             @Html.DisplayFor(modelItem => item.product_type_code)
@@ -34,8 +33,8 @@
                             @Html.ActionLink("Delete", "Delete", new { id = item.product_type_code })
                         </td>
                     </tr>
-                    }
-                </table>
-            </div>
+                }
+            </table>
         </div>
     </div>
+</div>
