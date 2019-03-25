@@ -189,7 +189,7 @@
     <Compile Include="Services\CustomerRepository.cs" />
     <Compile Include="Services\FooterRepository.cs" />
     <Compile Include="Services\MenuRepository.cs" />
-    <Compile Include="Services\OrderController.cs" />
+    <Compile Include="Services\OrderRepository.cs" />
     <Compile Include="Services\ProductRepository.cs" />
     <Compile Include="Services\SlideRepository.cs" />
     <Compile Include="Services\UserRepository.cs" />

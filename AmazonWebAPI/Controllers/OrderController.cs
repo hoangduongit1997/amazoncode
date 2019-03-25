@@ -4,11 +4,17 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using AmazonWebAPI.Services;
 
 namespace AmazonWebAPI.Controllers
 {
     public class OrderController : ApiController
     {
+        OrderRepository orderrepository;
+        public OrderController()
+        {
+            orderrepository = new OrderRepository();
+        }
         // GET: api/Order
         public IEnumerable<string> Get()
         {
