@@ -12,6 +12,8 @@ namespace Amazon.BUS
     public class ProductBUS
     {
         ProductDAL dal = new ProductDAL();
+        public ProductDAL Da { get => dal; set => dal = value; }
+
         public List<ProductDTO> GetAll()
         {
             var lst = dal.GetAll();
@@ -60,36 +62,58 @@ namespace Amazon.BUS
             }
             return null;
         }
-
+        public string autoKey()
+        {
+            return Da.autoKey();
+        }
         //public List<Product> ListRelatedProducts(string productId)
         //{
         //    return da.ListRelatedProducts(productId);
         //}
 
-        //public string Insert(Product product)
+        public bool Insert(ProductDTO product)
+        {
+            var config = new MapperConfiguration(cfg => {
+                cfg.CreateMap<ProductDTO, Product>();
+            });
+            IMapper iMapper = config.CreateMapper();
+            var model = iMapper.Map<ProductDTO, Product>(product);
+            return Da.Insert(model);
+        }
+
+        //public IEnumerable<ProductDTO> ListAll(int page, int pageSize)
         //{
-        //    return da.Insert(product);
+        //    return dal.ListAllPaging(page, pageSize);
         //}
 
-        //public IEnumerable<Product> ListAll(int page, int pageSize)
+        public bool Update(ProductDTO product)
+        {
+            var config = new MapperConfiguration(cfg => {
+
+                cfg.CreateMap<ProductDTO, Product>();
+
+            });
+            IMapper iMapper = config.CreateMapper();
+            var model = iMapper.Map<ProductDTO, Product>(product);
+            return Da.Update(model);
+        }
+
+        //public ProductDTO GetById(string productName)
         //{
-        //    return da.ListAllPaging(page, pageSize);
+        //    return dal.GetById(productName);
         //}
 
-        //public bool Update(Product entity)
-        //{
-        //    return da.Update(entity);
-        //}
+        public bool Delete(ProductDTO product)
+        {
+            var config = new MapperConfiguration(cfg => {
 
-        //public Product GetById(string productName)
-        //{
-        //    return da.GetById(productName);
-        //}
+                cfg.CreateMap<ProductDTO, Product>();
 
-        //public bool Delete(string id)
-        //{
-        //    return da.Delete(id);
-        //}
+            });
+            IMapper iMapper = config.CreateMapper();
+            var model = iMapper.Map<ProductDTO, Product>(product);
+            return Da.Delete(model);
+        }
 
         //public void UpdateImages(string productId, string images)
         //{

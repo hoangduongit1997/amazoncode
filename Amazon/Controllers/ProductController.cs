@@ -54,7 +54,7 @@ namespace Amazon.Controllers
         //    }
         //    return View();
         //}
-        [Route("typeID={typeid?}")]
+        //[Route("typeID={typeid?}")]
         public async Task<ActionResult> Index(string typeid)
         {
             HttpResponseMessage responseMessage = await client.GetAsync(url + "/ProductType="+typeid);

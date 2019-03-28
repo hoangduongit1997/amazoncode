@@ -60,6 +60,7 @@ namespace Amazon.BUS
             var model = iMapper.Map<SlideDTO, Slider>(Slider);
             return Da.Insert(model);
         }
+        //Mã tự động
         public int autoKey()
         {
             return Da.autoKey();

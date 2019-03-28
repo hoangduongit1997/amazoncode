@@ -67,7 +67,8 @@ namespace Amazon.Areas.Admin.Controllers
             try
             {
                 if (ModelState.IsValid)
-                {//MenuID, Text, Link DisplayOrder Target Status MenuTypeID MenuParentID Icon Properti 
+                {
+                    //MenuID, Text, Link DisplayOrder Target Status MenuTypeID MenuParentID Icon Properti 
                     var model = new MenuDTO();
                     model.MenuID = key;
                     model.Text = menu.Text;
@@ -100,7 +101,6 @@ namespace Amazon.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-
             var responseMessage = client.GetAsync(url + "/Menus/menuID=" + id);
             responseMessage.Wait();
             var result = responseMessage.Result;

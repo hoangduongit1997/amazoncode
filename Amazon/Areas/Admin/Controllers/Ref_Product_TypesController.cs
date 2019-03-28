@@ -59,7 +59,7 @@ namespace Amazon.Areas.Admin.Controllers
             string key = ctrl.autoKey();
             if (key != null)
                 return key;
-            return "TYPE0001";
+            return "PTYPE000";
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

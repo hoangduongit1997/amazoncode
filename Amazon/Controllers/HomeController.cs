@@ -24,7 +24,7 @@ namespace Amazon.Controllers
         }
         public async Task<ActionResult> Index()
         {
-            HttpResponseMessage responseMessage = await client.GetAsync(url + "/product/GetAll");
+            HttpResponseMessage responseMessage = await client.GetAsync(url + "/products/GetAll");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var responseData = responseMessage.Content.ReadAsStringAsync().Result;
