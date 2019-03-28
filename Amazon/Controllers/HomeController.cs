@@ -39,7 +39,7 @@ namespace Amazon.Controllers
                 //ViewBag.SessionUser = Session["Customer"];
                 return View();
             }
-            return View("Error");
+            return View();
         }
         [ChildActionOnly]
         public PartialViewResult MainMenu()
@@ -77,10 +77,24 @@ namespace Amazon.Controllers
             }
             return PartialView();
         }
-        //public PartialViewResult Footer()
-        //{
-        //    var footer = new FooterBUS().ListFooterBUS().ToList();
-        //    return PartialView(footer);
-        //}
+        ///Footers/GetAll
+        public PartialViewResult Footer()
+        {
+            HttpResponseMessage responseMessage = Task.Run(() => client.GetAsync(url + "/Home/Footer")).Result;
+            //HttpResponseMessage responseMessage = await client.GetAsync(url + "/Home/Menu");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var responseData = responseMessage.Content.ReadAsStringAsync().Result;
+                var settings = new JsonSerializerSettings
+                {
+                    NullValueHandling = NullValueHandling.Ignore,
+                    MissingMemberHandling = MissingMemberHandling.Ignore
+                };
+                var list_menu = JsonConvert.DeserializeObject<List<FooterDTO>>(responseData, settings);
+                return PartialView(list_menu);
+            }
+
+            return PartialView();
+        }
     }
 }
