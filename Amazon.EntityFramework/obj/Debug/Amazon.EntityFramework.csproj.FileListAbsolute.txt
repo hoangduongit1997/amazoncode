@@ -136,3 +136,28 @@ D:\Github\GitTest\amazoncode\Amazon.EntityFramework\bin\Debug\System.Web.Http.We
 D:\Github\GitTest\amazoncode\Amazon.EntityFramework\bin\Debug\System.Web.Http.xml
 D:\Github\GitTest\amazoncode\Amazon.EntityFramework\bin\Debug\System.Web.Http.WebHost.xml
 D:\Github\GitTest\amazoncode\Amazon.EntityFramework\obj\Debug\Amazon.EntityFramework.csprojAssemblyReference.cache
+D:\Git\New folder\Amazon.EntityFramework\bin\Debug\Amazon.EntityFramework.dll.config
+D:\Git\New folder\Amazon.EntityFramework\bin\Debug\Amazon.EntityFramework.dll
+D:\Git\New folder\Amazon.EntityFramework\bin\Debug\Amazon.EntityFramework.pdb
+D:\Git\New folder\Amazon.EntityFramework\bin\Debug\EntityFramework.dll
+D:\Git\New folder\Amazon.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+D:\Git\New folder\Amazon.EntityFramework\bin\Debug\Newtonsoft.Json.dll
+D:\Git\New folder\Amazon.EntityFramework\bin\Debug\System.Net.Http.Extensions.dll
+D:\Git\New folder\Amazon.EntityFramework\bin\Debug\System.Net.Http.Formatting.dll
+D:\Git\New folder\Amazon.EntityFramework\bin\Debug\System.Net.Http.Primitives.dll
+D:\Git\New folder\Amazon.EntityFramework\bin\Debug\System.Web.Http.dll
+D:\Git\New folder\Amazon.EntityFramework\bin\Debug\System.Web.Http.WebHost.dll
+D:\Git\New folder\Amazon.EntityFramework\bin\Debug\EntityFramework.xml
+D:\Git\New folder\Amazon.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+D:\Git\New folder\Amazon.EntityFramework\bin\Debug\Newtonsoft.Json.xml
+D:\Git\New folder\Amazon.EntityFramework\bin\Debug\System.Net.Http.Extensions.xml
+D:\Git\New folder\Amazon.EntityFramework\bin\Debug\System.Net.Http.Formatting.xml
+D:\Git\New folder\Amazon.EntityFramework\bin\Debug\System.Net.Http.Primitives.xml
+D:\Git\New folder\Amazon.EntityFramework\bin\Debug\System.Web.Http.xml
+D:\Git\New folder\Amazon.EntityFramework\bin\Debug\System.Web.Http.WebHost.xml
+D:\Git\New folder\Amazon.EntityFramework\obj\Debug\Amazon.EntityFramework.csproj.App.config
+D:\Git\New folder\Amazon.EntityFramework\obj\Debug\Amazon.EntityFramework.csprojAssemblyReference.cache
+D:\Git\New folder\Amazon.EntityFramework\obj\Debug\Amazon.EntityFramework.csproj.CoreCompileInputs.cache
+D:\Git\New folder\Amazon.EntityFramework\obj\Debug\Amazon.EntityFramework.csproj.CopyComplete
+D:\Git\New folder\Amazon.EntityFramework\obj\Debug\Amazon.EntityFramework.dll
+D:\Git\New folder\Amazon.EntityFramework\obj\Debug\Amazon.EntityFramework.pdb

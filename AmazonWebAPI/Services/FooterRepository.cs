@@ -11,7 +11,7 @@ namespace AmazonWebAPI.Services
     {
         FooterBUS bus = new FooterBUS();
         //danh sách footer
-        public List<FooterDTO> GetAllProductType()
+        public List<FooterDTO> GetAll()
         {
             return bus.GetAll();
         }

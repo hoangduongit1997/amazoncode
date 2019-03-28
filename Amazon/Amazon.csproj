@@ -2479,7 +2479,6 @@
     <Content Include="Content\fontawesome-free-5.7.2-web\webfonts\fa-solid-900.woff2" />
     <Content Include="Areas\Admin\Views\Products\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Products\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Products\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Products\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutAD.cshtml" />
     <Content Include="Areas\Admin\Views\Ref_Product_Types\Create.cshtml" />

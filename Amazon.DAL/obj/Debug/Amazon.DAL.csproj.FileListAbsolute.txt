@@ -259,3 +259,40 @@ D:\Github\GitTest\amazoncode\Amazon.DAL\bin\Debug\System.Web.Http.dll
 D:\Github\GitTest\amazoncode\Amazon.DAL\bin\Debug\System.Web.Http.WebHost.dll
 D:\Github\GitTest\amazoncode\Amazon.DAL\bin\Debug\System.Web.Http.xml
 D:\Github\GitTest\amazoncode\Amazon.DAL\bin\Debug\System.Web.Http.WebHost.xml
+D:\Git\New folder\Amazon.DAL\bin\Debug\Amazon.DAL.dll.config
+D:\Git\New folder\Amazon.DAL\bin\Debug\Amazon.DAL.dll
+D:\Git\New folder\Amazon.DAL\bin\Debug\Amazon.DAL.pdb
+D:\Git\New folder\Amazon.DAL\bin\Debug\Amazon.EntityFramework.dll
+D:\Git\New folder\Amazon.DAL\bin\Debug\AutoMapper.dll
+D:\Git\New folder\Amazon.DAL\bin\Debug\EntityFramework.dll
+D:\Git\New folder\Amazon.DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Git\New folder\Amazon.DAL\bin\Debug\Newtonsoft.Json.dll
+D:\Git\New folder\Amazon.DAL\bin\Debug\PagedList.dll
+D:\Git\New folder\Amazon.DAL\bin\Debug\PagedList.Mvc.dll
+D:\Git\New folder\Amazon.DAL\bin\Debug\System.Net.Http.Extensions.dll
+D:\Git\New folder\Amazon.DAL\bin\Debug\System.Net.Http.Formatting.dll
+D:\Git\New folder\Amazon.DAL\bin\Debug\System.Net.Http.Primitives.dll
+D:\Git\New folder\Amazon.DAL\bin\Debug\System.ValueTuple.dll
+D:\Git\New folder\Amazon.DAL\bin\Debug\System.Web.Http.dll
+D:\Git\New folder\Amazon.DAL\bin\Debug\System.Web.Http.WebHost.dll
+D:\Git\New folder\Amazon.DAL\bin\Debug\Amazon.EntityFramework.pdb
+D:\Git\New folder\Amazon.DAL\bin\Debug\Amazon.EntityFramework.dll.config
+D:\Git\New folder\Amazon.DAL\bin\Debug\AutoMapper.pdb
+D:\Git\New folder\Amazon.DAL\bin\Debug\AutoMapper.xml
+D:\Git\New folder\Amazon.DAL\bin\Debug\EntityFramework.xml
+D:\Git\New folder\Amazon.DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Git\New folder\Amazon.DAL\bin\Debug\Newtonsoft.Json.xml
+D:\Git\New folder\Amazon.DAL\bin\Debug\PagedList.xml
+D:\Git\New folder\Amazon.DAL\bin\Debug\PagedList.Mvc.xml
+D:\Git\New folder\Amazon.DAL\bin\Debug\System.Net.Http.Extensions.xml
+D:\Git\New folder\Amazon.DAL\bin\Debug\System.Net.Http.Formatting.xml
+D:\Git\New folder\Amazon.DAL\bin\Debug\System.Net.Http.Primitives.xml
+D:\Git\New folder\Amazon.DAL\bin\Debug\System.ValueTuple.xml
+D:\Git\New folder\Amazon.DAL\bin\Debug\System.Web.Http.xml
+D:\Git\New folder\Amazon.DAL\bin\Debug\System.Web.Http.WebHost.xml
+D:\Git\New folder\Amazon.DAL\obj\Debug\Amazon.DAL.csproj.App.config
+D:\Git\New folder\Amazon.DAL\obj\Debug\Amazon.DAL.csprojAssemblyReference.cache
+D:\Git\New folder\Amazon.DAL\obj\Debug\Amazon.DAL.csproj.CoreCompileInputs.cache
+D:\Git\New folder\Amazon.DAL\obj\Debug\Amazon.DAL.csproj.CopyComplete
+D:\Git\New folder\Amazon.DAL\obj\Debug\Amazon.DAL.dll
+D:\Git\New folder\Amazon.DAL\obj\Debug\Amazon.DAL.pdb

@@ -26,12 +26,21 @@ namespace Amazon.DAL
             return Db.Sliders.Find(id);
         }
 
-        //thêm loại sản phẩm
+        //thêm slide
         public bool Insert(Slider slide)
         {
-            Db.Sliders.Add(slide);
-            Db.SaveChanges();
-            return true;
+            bool status;
+            try
+            {
+                Db.Sliders.Add(slide);
+                Db.SaveChanges();
+                status = true;
+            }
+            catch(Exception)
+            {
+                status = false;
+            }
+            return status;
         }
         //mã tự động
         public int autoKey()
@@ -45,7 +54,7 @@ namespace Amazon.DAL
             }
             return key;
         }
-        //sửa loại sản phẩm
+        //sửa slide
         public bool Update(Slider slide)
         {
             bool status;
@@ -71,7 +80,7 @@ namespace Amazon.DAL
             }
             return status;
         }
-        //xóa loại sản phẩm
+        //xóa slide
         public bool Delete(Slider slide)
         {
             bool status;

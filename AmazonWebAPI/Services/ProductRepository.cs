@@ -26,7 +26,26 @@ namespace AmazonWebAPI.Services
         {
             return bus.ViewDetail(id);
         }
-
+        //thêm PRODUCT
+        public bool Insert(ProductDTO product)
+        {
+            return bus.Insert(product);
+        }
+        //sửa PRODUCT
+        public bool Update(ProductDTO product)
+        {
+            return bus.Update(product);
+        }
+        //xóa PRODUCT
+        public bool Delete(ProductDTO product)
+        {
+            return bus.Delete(product);
+        }
+        //mã tự động
+        public string autoKey()
+        {
+            return bus.autoKey();
+        }
     }
     
 }

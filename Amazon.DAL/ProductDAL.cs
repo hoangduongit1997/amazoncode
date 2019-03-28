@@ -33,13 +33,54 @@ namespace Amazon.DAL
             return db.Products.Where(x => x.product_id != productId && x.product_type_code == product.product_type_code).ToList();
         }
 
-        public string Insert(Product product)
+        public bool Insert(Product product)
         {
-            db.Products.Add(product);
-            db.SaveChanges();
-            return product.product_id;
+            bool status;
+            try
+            {
+                db.Products.Add(product);
+                db.SaveChanges();
+                status = true;
+            }
+            catch(Exception)
+            {
+                status = false;
+            }
+            return status;
         }
-
+        public string autoKey()
+        {
+            //string key = "";
+            //List<Product> lst = db.Products.Select(t => t).ToList<Product>();
+            //if (db.Products.Count() != 0)
+            //{
+            //    Product pr = lst[db.Products.Max(t => int.Parse(t.product_id))];
+            //    key = (int.Parse(pr.product_id) + 1).ToString();
+            //}
+            //return key;
+            int stt = 0;
+            string num = "", key = "";
+            List<Product> lst = db.Products.Select(t => t).ToList<Product>();
+            if (db.Ref_Product_Types.Count() != 0)
+            {
+                try
+                {
+                    Product hv = lst[db.Products.Count() - 1];
+                    string[] ma = hv.product_type_code.Trim().Split('D');
+                    stt = (int.Parse(ma[1]) + 1);
+                    if (stt < 10)
+                        num = "00";
+                    else
+                        num = "0";
+                    key = "PROD" + num + stt;
+                }
+                catch(Exception)
+                {
+                     key = "PROD000";
+                }
+            }
+            return key;
+        }
         public IEnumerable<Product> ListAllPaging(int page, int pageSize)
         {
             return db.Products.OrderByDescending(x => x.product_name).ToPagedList(page, pageSize);
@@ -71,20 +112,21 @@ namespace Amazon.DAL
         {
             return db.Products.SingleOrDefault(x => x.product_name == productName);
         }
-
-        public bool Delete(string id)
+        public bool Delete(Product product)
         {
+            bool status;
             try
             {
-                var product = db.Products.Find(id);
-                db.Products.Remove(product);
+                var type = db.Products.Find(product.product_id);
+                db.Products.Remove(type);
                 db.SaveChanges();
-                return true;
+                status = true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return false;
+                status = false;
             }
+            return status;
         }
 
         public void UpdateImages(string productId, string images)

@@ -26,7 +26,9 @@ namespace Amazon.Areas.Admin.Controllers
     {
         //
         HttpClient client;
-        string url = "http://localhost:62993/api/product";
+        string url = "http://localhost:62993/api";
+        private ProductApiController ctrl = new ProductApiController();
+
         public ProductsController()
         {
             client = new HttpClient();
@@ -54,7 +56,7 @@ namespace Amazon.Areas.Admin.Controllers
         //}
         public async Task<ActionResult> Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            HttpResponseMessage responseMessage = await client.GetAsync(url + "/GetAll");
+            HttpResponseMessage responseMessage = await client.GetAsync(url + "/products/GetAll");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var responseData = responseMessage.Content.ReadAsStringAsync().Result;
@@ -96,104 +98,138 @@ namespace Amazon.Areas.Admin.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
 
-        //public ActionResult Create(Product product, HttpPostedFileBase file)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        string path = Path.Combine(Server.MapPath("~/Upload/image/product/images"), Path.GetFileName(file.FileName));
-        //        if (System.IO.File.Exists(path))
-        //        {
-        //            ViewBag.ThongBao = "This picture existed";
-        //        }
-        //        else
-        //        {
-        //            file.SaveAs(path);
-        //        }
-        //        db.Products.Add(new Product
-        //        {
-        //            product_id = product.product_id,
-        //            product_type_code = product.product_type_code,
-        //            product_name = product.product_name,
-        //            product_price = product.product_price,
-        //            product_description = product.product_description,
-        //            product_size = product.product_size,
-        //            product_color = product.product_color,
-        //            product_imge = "/Upload/image/product/images/" + file.FileName,
+        public async Task<ActionResult> Create(ProductDTO product, HttpPostedFileBase file)
+        {
+            string key = ctrl.autoKey();
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    string path = Path.Combine(Server.MapPath("~/Upload/image/product/images"), Path.GetFileName(file.FileName));
+                    if (System.IO.File.Exists(path))
+                    {
+                        ViewBag.ThongBao = "This picture existed";
+                    }
+                    else
+                    {
+                        file.SaveAs(path);
+                    }
+                    var model = new ProductDTO();
+                    model.product_id = key;
+                    //model.product_type_code = product.product_type_code;
+                    model.product_type_code = "1";
+                    model.product_name = product.product_name;
+                    model.product_price = product.product_price;
+                    model.product_description = product.product_description;
+                    model.product_size = product.product_size;
+                    model.product_color = product.product_color;
+                    model.product_imge = "/Upload/image/product/images/" + file.FileName;
+                    model.createddate = DateTime.Now;
+                    model.promotionprice = product.promotionprice;
+                    HttpResponseMessage responseMessage = await client.PostAsJsonAsync(url + "/products", model);
+                    if (responseMessage.IsSuccessStatusCode)
+                    {
+                        var settings = new JsonSerializerSettings
+                        {
+                            NullValueHandling = NullValueHandling.Ignore,
+                            MissingMemberHandling = MissingMemberHandling.Ignore
+                        };
+                    }
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error: " + ex.ToString());
+            }
+            return View(product);
+        }
 
-        //            createddate = product.createddate = DateTime.Now,
-        //            promotionprice = product.promotionprice
-        //        });
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    ViewBag.product_type_code = new SelectList(db.Ref_Product_Types, "product_type_code", "product_type_description", product.product_type_code);
-        //    return View(product);
-        //}
-
-        ////EDIT
-
-        //public ActionResult Edit(string id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Product product = db.Products.Find(id);
-        //    if (product == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    ViewBag.product_type_code = new SelectList(db.Ref_Product_Types, "product_type_code", "product_type_description", product.product_type_code);
-        //    return View(product);
-        //}
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit([Bind(Include = "product_id,product_type_code,product_name,product_price,product_description,product_size,product_color,product_imge,more_image,createddate,promotionprice")] Product product)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var pd = new ProductBUS();
-        //        var result = pd.Update(product);
-        //        if (result)
-        //        {
-        //            return RedirectToAction("Index", "Products");
-        //        }
-        //        else
-        //        {
-        //            ModelState.AddModelError("", "Cập nhật sản phẩm thất bại");
-        //        }
-        //    }
-        //    ViewBag.product_type_code = new SelectList(db.Ref_Product_Types, "product_type_code", "product_type_description", product.product_type_code);
-        //    return View(product);
-        //}
+        //EDIT
+        [HttpGet]
+        public ActionResult Edit(string id)
+        {
+            var responseMessage = client.GetAsync(url + "/products/productID=" + id);
+            responseMessage.Wait();
+            var result = responseMessage.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                var readTask = result.Content.ReadAsStringAsync().Result;
+                var settings = new JsonSerializerSettings
+                {
+                    NullValueHandling = NullValueHandling.Ignore,
+                    MissingMemberHandling = MissingMemberHandling.Ignore
+                };
+                var model = JsonConvert.DeserializeObject<ProductDTO>(readTask, settings);
+                return View(model);
+            }
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit([Bind(Include = "product_id,product_type_code,product_name,product_price,product_description,product_size,product_color,product_imge,more_image,createddate,promotionprice")] ProductDTO product)
+        {
+            if (ModelState.IsValid)
+            {
+                var response = await client.PutAsJsonAsync("api/products/productID=" + product.product_id, product);
+                if (response.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Error");
+                }
+                return RedirectToAction("Index");
+            }
+            return View(product);
+        }
 
 
         //// DELETE
-        //public ActionResult Delete(string id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Product product = db.Products.Find(id);
-        //    if (product == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(product);
-        //}
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(string id)
-        //{
-        //    Product product = db.Products.Find(id);
-        //    db.Products.Remove(product);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
+        public ActionResult Delete(string id)
+        {
+            var responseMessage = client.GetAsync(url + "/products/productID=" + id);
+            responseMessage.Wait();
+            var result = responseMessage.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                var readTask = result.Content.ReadAsStringAsync().Result;
+                var settings = new JsonSerializerSettings
+                {
+                    NullValueHandling = NullValueHandling.Ignore,
+                    MissingMemberHandling = MissingMemberHandling.Ignore
+                };
+                var product = JsonConvert.DeserializeObject<ProductDTO>(readTask, settings);
+                return View(product);
+            }
+            return View();
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(string id)
+        {
+            var responseMessage = client.GetAsync(url + "/products/productID=" + id);
+            responseMessage.Wait();
+            var result = responseMessage.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                var readTask = result.Content.ReadAsStringAsync().Result;
+                var settings = new JsonSerializerSettings
+                {
+                    NullValueHandling = NullValueHandling.Ignore,
+                    MissingMemberHandling = MissingMemberHandling.Ignore
+                };
+                var product = JsonConvert.DeserializeObject<ProductDTO>(readTask, settings);
+                ctrl.DeleteProductType(product);
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Index");
+        }
 
         //protected override void Dispose(bool disposing)
         //{

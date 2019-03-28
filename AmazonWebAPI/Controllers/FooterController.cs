@@ -20,7 +20,7 @@ namespace AmazonWebAPI.Controllers
         [Route("api/Footers/GetAll")]
         public List<FooterDTO> Get()
         {
-            return footerRepository.GetAllProductType();
+            return footerRepository.GetAll();
         }
         [HttpGet]
         [Route("api/Footers/FooterID={id}")]
