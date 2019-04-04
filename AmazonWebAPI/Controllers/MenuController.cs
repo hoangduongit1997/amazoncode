@@ -16,30 +16,35 @@ namespace AmazonWebAPI.Controllers
         {
             this.menuRepository = new MenuRepository();
         }
+        //lấy tất cả menu
         [HttpGet]
         [Route("api/Menus/GetAll")]
         public List<MenuDTO> Get()
         {
             return menuRepository.ListMenu();
         }
+        //lấy menu theo id
         [HttpGet]
         [Route("api/Menus/MenuID={id}")]
         public MenuDTO Detail(int id)
         {
             return menuRepository.Detail(id);
         }
+        //thêm menu
         [HttpPost]
         [Route("api/Menus")]
         public bool PostProduct(MenuDTO item)
         {
             return menuRepository.Insert(item);
         }
+        //sửa menu
         [HttpPut]
         [Route("api/Menus/MenuID={id}")]
         public bool PutProductType(MenuDTO item)
         {
             return menuRepository.Update(item);
         }
+        //xóa menu
         [HttpDelete]
         [Route("api/Menus/MenuID={id}")]
         public bool DeleteProductType(MenuDTO item)

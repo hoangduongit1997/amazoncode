@@ -16,43 +16,56 @@ namespace AmazonWebAPI.Controllers
         {
             this.productRepository = new ProductRepository();
         }
+        //lấy tất cả product
         [HttpGet]
         [Route("api/products/GetAll")]
         public List<ProductDTO> Get()
         {
             return productRepository.GetAllProduct();
-           // return productRepository.GetOfType(typeID);
         }
+        //lấy product theo product type id
         [HttpGet]
-        [Route("api/products/ProductType={id}")]
+        [Route("api/products/ProductTypeID={id}")]
         public List<ProductDTO> GetOfType(string id)
         {
             return productRepository.GetOfType(id);
         }
+        //lấy product theo product name
+        [HttpGet]
+        [Route("api/products/name={name}")]
+        public List<ProductDTO> Getallby(string name)
+        {
+            return productRepository.GetAllBy(name);
+        }
+        //lấy product theo id
         [HttpGet]
         [Route("api/Products/ProductID={id}")]       
         public ProductDTO Detail(string id)
         {
             return productRepository.Detail(id);
         }
+        //thêm product
         [HttpPost]
         [Route("api/Products")]
         public bool PostProduct(ProductDTO item)
         {
             return productRepository.Insert(item);
         }
+        //sửa product
         [HttpPut]
         [Route("api/Products/ProductID={id}")]
         public bool PutProductType(ProductDTO item)
         {
             return productRepository.Update(item);
         }
+        //xóa product
         [HttpDelete]
         [Route("api/Products/ProductID={id}")]
         public bool DeleteProductType(ProductDTO item)
         {
             return productRepository.Delete(item);
         }
+        //
         public string autoKey()
         {
             return productRepository.autoKey();

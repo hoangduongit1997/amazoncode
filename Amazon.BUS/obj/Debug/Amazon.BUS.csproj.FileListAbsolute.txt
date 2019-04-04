@@ -338,3 +338,46 @@ D:\Git\New folder\Amazon.BUS\obj\Debug\Amazon.BUS.csproj.CoreCompileInputs.cache
 D:\Git\New folder\Amazon.BUS\obj\Debug\Amazon.BUS.csproj.CopyComplete
 D:\Git\New folder\Amazon.BUS\obj\Debug\Amazon.BUS.dll
 D:\Git\New folder\Amazon.BUS\obj\Debug\Amazon.BUS.pdb
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\Amazon.BUS.dll.config
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\Amazon.BUS.dll
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\Amazon.BUS.pdb
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\Amazon.DAL.dll
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\Amazon.DTO.dll
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\Amazon.EntityFramework.dll
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\AutoMapper.dll
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\EntityFramework.dll
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\EntityFramework.SqlServer.dll
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\Newtonsoft.Json.dll
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\PagedList.dll
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\PagedList.Mvc.dll
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\System.Net.Http.Extensions.dll
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\System.Net.Http.Formatting.dll
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\System.Net.Http.Primitives.dll
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\System.ValueTuple.dll
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\System.Web.Http.dll
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\System.Web.Http.WebHost.dll
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\Amazon.DAL.pdb
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\Amazon.DAL.dll.config
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\Amazon.DTO.pdb
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\Amazon.DTO.dll.config
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\Amazon.EntityFramework.pdb
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\Amazon.EntityFramework.dll.config
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\AutoMapper.pdb
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\AutoMapper.xml
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\EntityFramework.xml
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\EntityFramework.SqlServer.xml
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\Newtonsoft.Json.xml
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\PagedList.xml
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\PagedList.Mvc.xml
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\System.Net.Http.Extensions.xml
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\System.Net.Http.Formatting.xml
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\System.Net.Http.Primitives.xml
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\System.ValueTuple.xml
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\System.Web.Http.xml
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\bin\Debug\System.Web.Http.WebHost.xml
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\obj\Debug\Amazon.BUS.csproj.App.config
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\obj\Debug\Amazon.BUS.csprojAssemblyReference.cache
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\obj\Debug\Amazon.BUS.csproj.CoreCompileInputs.cache
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\obj\Debug\Amazon.BUS.csproj.CopyComplete
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\obj\Debug\Amazon.BUS.dll
+D:\Github\Api\Amazon\amazoncode\Amazon.BUS\obj\Debug\Amazon.BUS.pdb
