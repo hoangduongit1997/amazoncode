@@ -24,19 +24,21 @@ namespace AmazonWebAPI.Controllers
         public MenuRepository MenuRepository { get => menuRepository; set => menuRepository = value; }
         public SlideRepository SlideRepository { get => slideRepository; set => slideRepository = value; }
         public FooterRepository FooterRepository { get => footerRepository; set => footerRepository = value; }
-
+        //lấy dữ liệu menu
         [HttpGet]
         [Route("api/Home/Menu")]
         public List<MenuDTO> GetMenu()
         {
             return MenuRepository.ListMenu();
         }
+        //lấy dữ liệu slide
         [HttpGet]
         [Route("api/Home/Slide")]
         public List<SlideDTO> GetSlide()
         {
             return SlideRepository.ListSlide();
         }
+        //lấy dữ liệu footer
         [HttpGet]
         [Route("api/Home/Footer")]
         public List<FooterDTO> Footer()

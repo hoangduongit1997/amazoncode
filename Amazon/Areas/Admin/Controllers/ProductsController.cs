@@ -36,6 +36,15 @@ namespace Amazon.Areas.Admin.Controllers
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
+        public string ChuanHoa(string s)
+        {
+            s = s.Trim();// xóa khoảng trắng đầu và cuối
+            while (s.Contains("  ")) //2 khoảng trắng
+            {
+                s = s.Replace("  ", " "); //Replace 2 khoảng trắng thành 1 khoảng trắng
+            }
+            return s;
+        }
         ProductTypesController type = new ProductTypesController();
         //public async Task<ActionResult> Index()
         //{
@@ -56,7 +65,18 @@ namespace Amazon.Areas.Admin.Controllers
         //}
         public async Task<ActionResult> Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            HttpResponseMessage responseMessage = await client.GetAsync(url + "/products/GetAll");
+            HttpResponseMessage responseMessage;// = await client.GetAsync(url + "/products/GetAll");
+            if (searchString != null)
+            {
+                page = 1;
+                responseMessage = await client.GetAsync(url + "/products/name=" + searchString );
+            }
+            else
+            {
+                searchString = currentFilter;
+                responseMessage = await client.GetAsync(url + "/products/GetAll");
+            }
+            ViewBag.currentFilter = searchString;
             if (responseMessage.IsSuccessStatusCode)
             {
                 var responseData = responseMessage.Content.ReadAsStringAsync().Result;
@@ -66,15 +86,16 @@ namespace Amazon.Areas.Admin.Controllers
                     MissingMemberHandling = MissingMemberHandling.Ignore
                 };
                 var product = JsonConvert.DeserializeObject<List<ProductDTO>>(responseData, settings);
-                if (searchString != null)
-                {
-                    page = 1;
-                }
-                else
-                {
-                    searchString = currentFilter;
-                }
-                ViewBag.currentFilter = searchString;
+                //if (searchString != null)
+                //{
+                //    page = 1;
+
+                //}
+                //else
+                //{
+                //    searchString = currentFilter;
+                //}
+                //ViewBag.currentFilter = searchString;
                 //var product = from pr in db.Products select pr;
                 //if (!String.IsNullOrEmpty(searchString))
                 //{
@@ -91,6 +112,13 @@ namespace Amazon.Areas.Admin.Controllers
         //
         //private ShopDbContext db = new ShopDbContext();
         //CREATE
+        public string autoKey()
+        {
+            string key = ctrl.autoKey();
+            if (key != null)
+                return key;
+            return "PROD000";
+        }
         [HttpGet]
         public ActionResult Create()
         {
@@ -103,7 +131,7 @@ namespace Amazon.Areas.Admin.Controllers
 
         public async Task<ActionResult> Create(ProductDTO product, HttpPostedFileBase file)
         {
-            string key = ctrl.autoKey();
+            string key = autoKey();
             try
             {
                 if (ModelState.IsValid)
@@ -123,7 +151,7 @@ namespace Amazon.Areas.Admin.Controllers
                     model.product_type_code = "1";
                     model.product_name = product.product_name;
                     model.product_price = product.product_price;
-                    model.product_description = product.product_description;
+                    model.product_description = ChuanHoa(product.product_description);
                     model.product_size = product.product_size;
                     model.product_color = product.product_color;
                     model.product_imge = "/Upload/image/product/images/" + file.FileName;
@@ -164,6 +192,7 @@ namespace Amazon.Areas.Admin.Controllers
                     MissingMemberHandling = MissingMemberHandling.Ignore
                 };
                 var model = JsonConvert.DeserializeObject<ProductDTO>(readTask, settings);
+                ChuanHoa(model.product_description);
                 return View(model);
             }
             return View();
@@ -172,6 +201,7 @@ namespace Amazon.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "product_id,product_type_code,product_name,product_price,product_description,product_size,product_color,product_imge,more_image,createddate,promotionprice")] ProductDTO product)
         {
+            ChuanHoa(product.product_description);
             if (ModelState.IsValid)
             {
                 var response = await client.PutAsJsonAsync("api/products/productID=" + product.product_id, product);

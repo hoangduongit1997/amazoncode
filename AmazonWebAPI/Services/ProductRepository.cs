@@ -18,6 +18,10 @@ namespace AmazonWebAPI.Services
         {
             return bus.GetByType(ID);
         }
+        public List<ProductDTO> GetAllBy(string searchString)
+        {
+            return bus.GetAllBy(searchString);
+        }
         public List<ProductDTO> GetAllProduct()
         {
             return bus.GetAll();

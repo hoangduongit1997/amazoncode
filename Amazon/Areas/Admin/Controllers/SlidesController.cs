@@ -54,6 +54,17 @@ namespace Amazon.Areas.Admin.Controllers
             }
             return View();
         }
+        //
+        public string ChuanHoa(string s)
+        {
+            s = s.Trim();// xóa khoảng trắng đầu và cuối
+            while (s.Contains("  ")) //2 khoảng trắng
+            {
+                s = s.Replace("  ", " "); //Replace 2 khoảng trắng thành 1 khoảng trắng
+            }
+            return s;
+        }
+        //
         [HttpGet]
         public ActionResult Create()
         {
@@ -84,7 +95,7 @@ namespace Amazon.Areas.Admin.Controllers
                     sld.Image = "/Upload/image/logo/" + file.FileName;//file
                     sld.DisplayOrder = slide.DisplayOrder;
                     sld.Link = slide.Link;
-                    sld.Description = slide.Description;
+                    sld.Description = ChuanHoa(slide.Description);
                     sld.CreatedDate = DateTime.Now;
                     sld.CreatedBy = slide.CreatedBy;
                     sld.ModifiedDate = DateTime.Now;

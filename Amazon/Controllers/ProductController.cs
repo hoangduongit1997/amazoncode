@@ -20,7 +20,7 @@ namespace Amazon.Controllers
     {
         HttpClient client;
         //The URL of the WEB API Service
-        string url = "http://localhost:62993/api/product";
+        string url = "http://localhost:62993/api";
 
 
         public ProductController()
@@ -55,9 +55,10 @@ namespace Amazon.Controllers
         //    return View();
         //}
         //[Route("typeID={typeid?}")]
+
         public async Task<ActionResult> Index(string typeid)
         {
-            HttpResponseMessage responseMessage = await client.GetAsync(url + "/ProductType="+typeid);
+            HttpResponseMessage responseMessage = await client.GetAsync(url + "/products/ProductTypeID=" + typeid);
             if (responseMessage.IsSuccessStatusCode)
             {
                 var responseData = responseMessage.Content.ReadAsStringAsync().Result;
@@ -67,7 +68,6 @@ namespace Amazon.Controllers
                     MissingMemberHandling = MissingMemberHandling.Ignore
                 };
                 var product = JsonConvert.DeserializeObject<List<ProductDTO>>(responseData, settings);
-
                 // return View(product);
                 //var lst = new ProductBUS().ListNewProduct();
                 ViewBag.ProductType = ctrl.Get();
@@ -83,9 +83,11 @@ namespace Amazon.Controllers
         //[Route("{productId}/{productTitle}")]
         public async Task<ActionResult> Show(string id, string name)
         {
-            HttpResponseMessage responseMessage = await client.GetAsync(url + "/ProductID="+ id);
+            //Kiểm tra truy cập
+            HttpResponseMessage responseMessage = await client.GetAsync(url + "/products/ProductID=" + id);
             if (responseMessage.IsSuccessStatusCode)
             {
+                //lấy dữ liệu product theo id
                 var responseData = responseMessage.Content.ReadAsStringAsync().Result;
                 var settings = new JsonSerializerSettings
                 {
@@ -94,6 +96,7 @@ namespace Amazon.Controllers
                 };
                 var product = JsonConvert.DeserializeObject<ProductDTO>(responseData, settings);
                 //name = product.product_name;
+                ViewBag.ProductType = ctrl.Get();
                 return View(product);
             }
             return View("Error");

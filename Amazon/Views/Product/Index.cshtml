@@ -23,10 +23,8 @@
                         <table class="table table-striped">
                             @foreach (var item in ListProductType)
                             {
-                                //var url = "/ProductTypes-"+item.product_type_code;
                                 <tr>
                                     <td>
-                                        @*<a href="@url">@item.product_type_description</a>*@
                                         <a href="@Url.Action("Index","Product",new {typeID=item.product_type_code})">@item.product_type_description</a>
                                     </td>
                                 </tr>
@@ -36,6 +34,7 @@
                 </div>
             </div>
         </div>
+        <!---->
         <div class="col-md-9">
             <div id="content" class="row">
                 <!---->
@@ -55,13 +54,13 @@
                                     <p title="@item.product_description" id="text">@item.product_description</p>
                                     <span>$@item.product_price</span>
                                 </div>
-                                <a href="@Url.Action("Show","Product",new {id=item.product_id })" class="btn btn-primary">Details</a>
+                                <a href="@Url.Action("Show","Product",new {id=item.product_id, name=item.product_name })" class="btn btn-primary">Details</a>
 
                             </div>
 
                         </div>
                     </div>
-                    <!--end of for-->
+                    <!--end-->
                 }
                 <hr />
             </div>

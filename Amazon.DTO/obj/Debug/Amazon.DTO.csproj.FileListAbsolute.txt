@@ -53,3 +53,24 @@ D:\Git\New folder\Amazon.DTO\obj\Debug\Amazon.DTO.csproj.CoreCompileInputs.cache
 D:\Git\New folder\Amazon.DTO\obj\Debug\Amazon.DTO.csproj.CopyComplete
 D:\Git\New folder\Amazon.DTO\obj\Debug\Amazon.DTO.dll
 D:\Git\New folder\Amazon.DTO\obj\Debug\Amazon.DTO.pdb
+D:\Github\Api\Amazon\amazoncode\Amazon.DTO\bin\Debug\Amazon.DTO.dll.config
+D:\Github\Api\Amazon\amazoncode\Amazon.DTO\bin\Debug\Amazon.DTO.dll
+D:\Github\Api\Amazon\amazoncode\Amazon.DTO\bin\Debug\Amazon.DTO.pdb
+D:\Github\Api\Amazon\amazoncode\Amazon.DTO\bin\Debug\Newtonsoft.Json.dll
+D:\Github\Api\Amazon\amazoncode\Amazon.DTO\bin\Debug\System.Net.Http.Extensions.dll
+D:\Github\Api\Amazon\amazoncode\Amazon.DTO\bin\Debug\System.Net.Http.Formatting.dll
+D:\Github\Api\Amazon\amazoncode\Amazon.DTO\bin\Debug\System.Net.Http.Primitives.dll
+D:\Github\Api\Amazon\amazoncode\Amazon.DTO\bin\Debug\System.Web.Http.dll
+D:\Github\Api\Amazon\amazoncode\Amazon.DTO\bin\Debug\System.Web.Http.WebHost.dll
+D:\Github\Api\Amazon\amazoncode\Amazon.DTO\bin\Debug\Newtonsoft.Json.xml
+D:\Github\Api\Amazon\amazoncode\Amazon.DTO\bin\Debug\System.Net.Http.Extensions.xml
+D:\Github\Api\Amazon\amazoncode\Amazon.DTO\bin\Debug\System.Net.Http.Formatting.xml
+D:\Github\Api\Amazon\amazoncode\Amazon.DTO\bin\Debug\System.Net.Http.Primitives.xml
+D:\Github\Api\Amazon\amazoncode\Amazon.DTO\bin\Debug\System.Web.Http.xml
+D:\Github\Api\Amazon\amazoncode\Amazon.DTO\bin\Debug\System.Web.Http.WebHost.xml
+D:\Github\Api\Amazon\amazoncode\Amazon.DTO\obj\Debug\Amazon.DTO.csproj.App.config
+D:\Github\Api\Amazon\amazoncode\Amazon.DTO\obj\Debug\Amazon.DTO.csprojAssemblyReference.cache
+D:\Github\Api\Amazon\amazoncode\Amazon.DTO\obj\Debug\Amazon.DTO.csproj.CoreCompileInputs.cache
+D:\Github\Api\Amazon\amazoncode\Amazon.DTO\obj\Debug\Amazon.DTO.csproj.CopyComplete
+D:\Github\Api\Amazon\amazoncode\Amazon.DTO\obj\Debug\Amazon.DTO.dll
+D:\Github\Api\Amazon\amazoncode\Amazon.DTO\obj\Debug\Amazon.DTO.pdb

@@ -11,15 +11,7 @@ namespace AmazonWebAPI.Services
 {
     public class ProductTypeRepository
     {
-        //SHOPEntities shop = new SHOPEntities();
-
-        //public SHOPEntities Shop { get => shop; set => shop = value; }
         ProductTypeBUS bus = new ProductTypeBUS();
-
-        //public List<Ref_Product_Types> GetOfType(string ID)
-        //{
-        //    return Shop.Ref_Product_Types.Where(t => t.product_type_code == ID).ToList<Ref_Product_Types>();
-        //}
         public List<Ref_Product_TypesDTO> GetAllProductType()
         {
             return bus.GetAll();

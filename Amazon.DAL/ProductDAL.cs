@@ -18,6 +18,13 @@ namespace Amazon.DAL
         {
             return db.Products.Select(t => t).ToList();
         }
+        public List<Product> GetAllBy(string searchString)
+        {
+            var results = from u in db.Products
+                          where u.product_name.Contains(searchString)
+                          select u;
+            return results.ToList();
+        }
         public List<Product> GetByType(string id)
         {
             return db.Products.Where(t => t.product_type_code == id).ToList();
@@ -50,14 +57,6 @@ namespace Amazon.DAL
         }
         public string autoKey()
         {
-            //string key = "";
-            //List<Product> lst = db.Products.Select(t => t).ToList<Product>();
-            //if (db.Products.Count() != 0)
-            //{
-            //    Product pr = lst[db.Products.Max(t => int.Parse(t.product_id))];
-            //    key = (int.Parse(pr.product_id) + 1).ToString();
-            //}
-            //return key;
             int stt = 0;
             string num = "", key = "";
             List<Product> lst = db.Products.Select(t => t).ToList<Product>();
@@ -66,7 +65,7 @@ namespace Amazon.DAL
                 try
                 {
                     Product hv = lst[db.Products.Count() - 1];
-                    string[] ma = hv.product_type_code.Trim().Split('D');
+                    string[] ma = hv.product_id.Trim().Split('D');
                     stt = (int.Parse(ma[1]) + 1);
                     if (stt < 10)
                         num = "00";
@@ -76,7 +75,7 @@ namespace Amazon.DAL
                 }
                 catch(Exception)
                 {
-                     key = "PROD000";
+                     key = null;
                 }
             }
             return key;

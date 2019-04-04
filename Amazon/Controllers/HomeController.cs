@@ -41,6 +41,7 @@ namespace Amazon.Controllers
             }
             return View();
         }
+        //Get MainMenu
         [ChildActionOnly]
         public PartialViewResult MainMenu()
         {
